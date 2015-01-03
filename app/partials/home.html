@@ -1,13 +1,38 @@
-<div class="container" layout="column" layout-align="center center">
-  <div class="header">
-    <h1>ANGULAR MATERIAL REQUIRE JS SEED</h1>
-  </div>
-  <div class="content">
-    <md-content>
-      <p>
-        For more information about angular-material click<br> 
-         <md-button ng-href="https://material.angularjs.org" class="md-raised md-primary">HERE</md-button>
-      </p>
-    </md-content> 
-  </div>
+<div class="container">
+  <md-content>
+    <md-tabs>
+      <md-tab label="DEALS OF THE DAY">
+        <md-list>
+          <md-item ng-repeat="item in offers.top">
+            <md-item-content layout-margin layout-padding>
+              <div class="md-tile-content">
+                <h3>{{item.title}}</h3>
+                <h4>{{item.availability}}</h4>
+                <p>
+                  {{item.description}}
+                </p>
+              </div>
+            </md-item-content>
+            <md-divider ng-if="!$last"></md-divider>
+          </md-item>
+        </md-list>
+      </md-tab>
+       <md-tab label="TOP OFFERS">
+       <md-list>
+          <md-item ng-repeat="item in offers.dotd">
+            <md-item-content layout-margin layout-padding>
+              <div class="md-tile-content">
+                <h3>{{item.title}}</h3>
+                <h4>{{item.availability}}</h4>
+                <p>
+                  {{item.description}}
+                </p>
+              </div>
+            </md-item-content>
+            <md-divider ng-if="!$last"></md-divider>
+          </md-item>
+        </md-list>
+      </md-tab>
+    </md-tabs>
+  </md-content> 
 </div>

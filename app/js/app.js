@@ -17,7 +17,7 @@ define([
     'ngMaterial',
     //'myApp.filter',
     //'myApp.provider',
-    //'myApp.service',
+    'myApp.service',
     //'myApp.directive',
     'myApp.controller'
   ]);
