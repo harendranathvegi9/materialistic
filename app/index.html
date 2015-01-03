@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-csp>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>myApp Title</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Angular CSP for Chrome extensions -->
+        <link rel="stylesheet" type="text/css" href="css/angular-csp.css">
+        <!-- Angular Material CSS -->
+        <link rel="stylesheet" type="text/css" href="css/material/angular-material.css">
+        <!-- Custom Styles/Overrides -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="icon" type="image/ico" href="favicon.ico">
+        <!-- Google Fonts -->
+        <!-- Apple touch icons -->
+    </head>
+    <body>
+        <div ng-view></div>
+        <!-- Hammer JS has to be preloaded -->
+        <script type="text/javascript" src="js/vendor/hammer.js"></script>
+        <!-- For development environments -->
+        <script type="text/javascript" src="js/vendor/require.js"></script>
+        <script type="text/javascript" src="js/rjsConfig.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <!-- For production environments -->
+        <!--<script type="text/javascript" src="js/myApp.js"></script>-->
+    </body>
+</html>
