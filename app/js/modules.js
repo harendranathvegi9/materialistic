@@ -3,6 +3,6 @@ define([
   //'./filters/index',
   //'./providers/index',
   './services/index',
-  //'./directives/index',
+  './directives/index',
   './controllers/index'
 ], function() {});

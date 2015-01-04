@@ -18,7 +18,7 @@ define([
     //'myApp.filter',
     //'myApp.provider',
     'myApp.service',
-    //'myApp.directive',
+    'myApp.directive',
     'myApp.controller'
   ]);
   return myApp;

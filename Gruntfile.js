@@ -66,6 +66,11 @@ module.exports = function(grunt) {
           {
             src: './bower_components/angular-material/angular-material.css',
             dest: './app/css/material/angular-material.css'
+          }, {
+            src: '*.css',
+            dest: './app/css/material/themes/',
+            cwd: './bower_components/angular-material/themes/',
+            expand: true
           },
           /*Hammer*/
           {
@@ -89,7 +94,17 @@ module.exports = function(grunt) {
           {
             src: './bower_components/underscore/underscore.js',
             dest: './app/js/vendor/underscore.js'
-          }
+          },
+          //FONTS
+         /* {
+            src: '**',
+            dest: './app/fonts/',
+            cwd: './bower_components/roboto-fontface/fonts/',
+            expand: true
+          }, {
+            src: './bower_components/roboto-fontface/roboto-fontface.less',
+            dest: './app/less/roboto-fontface.less',
+          }*/
         ]
       }
     },

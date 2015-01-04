@@ -3,7 +3,9 @@
 @import "./mixins";
 @import "./scrollbars";
 
-
+[layout-padding]{
+  padding: 8px;
+}
 
 .container{
   width: 320px;
@@ -31,13 +33,12 @@
 
 .mm-product-list{
   height: 400px;
-  overflow-y: auto;
 }
 .mm-pointer{
   cursor: pointer;
 }
 .md-title-right{
-  margin: 16px;
+  margin: 8px;
   background-image:url('../img/product-loading.png');
   background-position: center center;
   background-repeat: no-repeat;
@@ -49,4 +50,27 @@
   -webkit-background-size: cover;
   width: 70px;
   height: 70px;
+}
+
+.md-tabs-content{
+  display: block;
+  position: relative;
+  height: 456px;
+  overflow: hidden;
+}
+.md-tab-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y:auto;
+  .transition(all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s)
+}
+
+.mm-header-text{
+  font-weight: 300;
+  margin:0;
+}
+
+html,body{
+  font-family: 'Roboto', sans-serif;
 }
