@@ -2,37 +2,57 @@
   <md-content>
     <md-tabs>
       <md-tab label="DEALS OF THE DAY">
-        <md-list>
-          <md-item ng-repeat="item in offers.top">
-            <md-item-content layout-margin layout-padding>
-              <div class="md-tile-content">
-                <h3>{{item.title}}</h3>
-                <h4>{{item.availability}}</h4>
-                <p>
-                  {{item.description}}
-                </p>
-              </div>
-            </md-item-content>
-            <md-divider ng-if="!$last"></md-divider>
-          </md-item>
-        </md-list>
+        <md-content layout="row" layout="start center" class="mm-search-product md-whiteframe-z1">
+          <md-text-float label="Search" ng-model="searchText" class="long"></md-text-float>
+        </md-content>
+        <md-content class="mm-product-list">
+          <md-list>
+            <md-item ng-repeat="item in offers.top | filter:searchText">
+              <md-item-content layout-margin layout-padding class="mm-pointer" ng-click="goToUrl(item.url)">
+                <div class="md-tile-content">
+                  <h3>{{item.title}}</h3>
+                  <h4>{{item.availability}}</h4>
+                  <p>
+                    {{item.description}}
+                  </p>
+                </div>
+                <div class="md-title-right">
+                  <div class="mm-product-image" ng-style="{'background-image':'url({{item.imageUrls[0].url}})'}">
+                    <img src="img/product-circle.png">
+                  </div>
+                </div>
+              </md-item-content>
+              <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+          </md-list>
+        </md-content>
       </md-tab>
        <md-tab label="TOP OFFERS">
-       <md-list>
-          <md-item ng-repeat="item in offers.dotd">
-            <md-item-content layout-margin layout-padding>
-              <div class="md-tile-content">
-                <h3>{{item.title}}</h3>
-                <h4>{{item.availability}}</h4>
-                <p>
-                  {{item.description}}
-                </p>
-              </div>
-            </md-item-content>
-            <md-divider ng-if="!$last"></md-divider>
-          </md-item>
-        </md-list>
+         <md-content layout="row" layout="start center" class="mm-search-product md-whiteframe-z1">
+          <md-text-float label="Search" ng-model="searchText" class="long"></md-text-float>
+        </md-content>
+        <md-content class="mm-product-list">
+          <md-list>
+            <md-item ng-repeat="item in offers.dotd | filter:searchText">
+              <md-item-content layout-margin layout-padding class="mm-pointer" ng-click="goToUrl(item.url)">
+                <div class="md-tile-content ">
+                  <h3>{{item.title}}</h3>
+                  <h4>{{item.availability}}</h4>
+                  <p>
+                    {{item.description}}
+                  </p>
+                </div>
+                <div class="md-title-right">
+                  <div class="mm-product-image" ng-style="{'background-image':'url({{item.imageUrls[0].url}})'}">
+                    <img src="img/product-circle.png">
+                  </div>
+                </div>
+              </md-item-content>
+              <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+          </md-list>
+        </md-content>
       </md-tab>
     </md-tabs>
-  </md-content> 
+  </md-content>
 </div>

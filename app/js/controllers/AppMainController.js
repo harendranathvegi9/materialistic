@@ -1,4 +1,5 @@
 /*global define*/
+/*global chrome*/
 define(['./module'], function(controllerModule) {
   controllerModule.controller('AppMainController', ['$scope', 'MaterialisticCloudService',
 
@@ -11,18 +12,29 @@ define(['./module'], function(controllerModule) {
       };
 
       $scope.offers = {};
-      $scope.offers.top = [];
-      $scope.offers.dotd = [];
+      $scope.offers.top = [{
+        title: 'Loading...'
+      }];
+      $scope.offers.dotd = [{
+        title: 'Loading...'
+      }];
 
-      MaterialisticCloudService.api.flipkart.offers.top().then(function(response){
+      MaterialisticCloudService.api.flipkart.offers.top().then(function(response) {
         $scope.offers.top = response.data.topOffersList;
         console.log(response.data);
       });
 
-      MaterialisticCloudService.api.flipkart.offers.dotd().then(function(response){
+      MaterialisticCloudService.api.flipkart.offers.dotd().then(function(response) {
         $scope.offers.dotd = response.data.dotdList;
         console.log(response.data);
       });
+
+      $scope.goToUrl = function(url) {
+        chrome.tabs.create({
+          url: url,
+          active: false,
+        }, function() {});
+      };
 
       $scope.app.appRepo = "https://github.com/nisheedj/angular-material-requirejs-seed.git";
 
