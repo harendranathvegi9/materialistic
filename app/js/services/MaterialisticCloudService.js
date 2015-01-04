@@ -1,5 +1,5 @@
 /*global define*/
-define(['./module', _], function(servicesModule, _) {
+define(['./module', 'underscore'], function(servicesModule, _) {
   servicesModule.factory('MaterialisticCloudService', ['$http',
     function($http) {
       var _apiURL = 'http://materialistic-njcould.rhcloud.com/';

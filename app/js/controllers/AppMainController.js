@@ -1,9 +1,9 @@
 /*global define*/
 /*global chrome*/
 define(['./module'], function(controllerModule) {
-  controllerModule.controller('AppMainController', ['$scope', 'MaterialisticCloudService',
+  controllerModule.controller('AppMainController', ['$scope', '$interval', 'MaterialisticCloudService', 'GeoLocationService',
 
-    function($scope, MaterialisticCloudService) {
+    function($scope, $interval, MaterialisticCloudService, GeoLocationService) {
       $scope.app = {};
       $scope.app.appName = 'Angular Material RequireJS Seed';
       $scope.app.author = {
@@ -11,6 +11,8 @@ define(['./module'], function(controllerModule) {
         email: 'nisheedj@thoughtworks.com'
       };
 
+      $scope.currentTime = '';
+      $scope.address = "";
       $scope.offers = {};
       $scope.offers.top = [{
         title: 'Loading...'
@@ -18,6 +20,7 @@ define(['./module'], function(controllerModule) {
       $scope.offers.dotd = [{
         title: 'Loading...'
       }];
+
 
       MaterialisticCloudService.api.flipkart.offers.top().then(function(response) {
         $scope.offers.top = response.data.topOffersList;
@@ -29,12 +32,24 @@ define(['./module'], function(controllerModule) {
         console.log(response.data);
       });
 
+      GeoLocationService.getLocation();
+
+      $scope.$on('Materialistic:GeoLocationFound', function(e, data) {
+        GeoLocationService.getCurrenAddress(data).then(function(response) {
+          $scope.address = GeoLocationService.getAddressByType(response.data, 'locality');
+        });
+      });
+
       $scope.goToUrl = function(url) {
         chrome.tabs.create({
           url: url,
           active: false,
         }, function() {});
       };
+
+      var timeInterval = $interval(function(){
+        $scope.currentTime = new Date();
+      },1000);
 
       $scope.app.appRepo = "https://github.com/nisheedj/angular-material-requirejs-seed.git";
 

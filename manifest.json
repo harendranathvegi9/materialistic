@@ -9,9 +9,9 @@
     "persistent": false
   },
   "content_security_policy": "script-src 'self'; object-src 'self'",
-  "chrome_url_overrides": {
+  /*"chrome_url_overrides": {
     "newtab": "app/index.html"
-  },
+  },*/
   "icons": {
     "128": "app/img/bag-icon-128.png",
     "48": "app/img/bag-icon-48.png",
