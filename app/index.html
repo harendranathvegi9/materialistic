@@ -10,12 +10,11 @@
         <link rel="stylesheet" type="text/css" href="css/angular-csp.css">
         <!-- Angular Material CSS -->
         <link rel="stylesheet" type="text/css" href="css/material/angular-material.css">
-        <link rel="stylesheet" type="text/css" href="css/material/themes/indigo-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/material/themes/blue-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/material/themes/cyan-theme.css">
         <link rel="stylesheet" type="text/css" href="css/material/themes/pink-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/material/themes/light-blue-dark-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/material/themes/grey-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/material/themes/deep-purple-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/sprite-navigation-white.css">
+        <link rel="stylesheet" type="text/css" href="css/sprite-navigation-black.css">
+        <link rel="stylesheet" type="text/css" href="css/sprite-navigation-grey600.css">
         <!-- Custom Styles/Overrides -->
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="icon" type="image/ico" href="favicon.ico">
@@ -24,7 +23,11 @@
         <!-- Apple touch icons -->
     </head>
     <body>
-        <div ng-view></div>
+        <section class="mm-container" ng-controller="MainController">
+            <mm-header></mm-header>
+            <div ng-view></div>
+            <mm-settings></mm-settings>
+        </section>
         <!-- Hammer JS has to be preloaded -->
         <script type="text/javascript" src="js/vendor/hammer.js"></script>
         <!-- For development environments -->

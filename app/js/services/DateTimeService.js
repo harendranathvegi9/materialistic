@@ -19,8 +19,18 @@ define(['./module', 'underscore'], function(servicesModule, _) {
 
         return 'Hi!';
       };
+      var _getOrdinal = function(n) {
+        if ((parseFloat(n) === parseInt(n)) && !isNaN(n)) {
+          var s = ["th", "st", "nd", "rd"],
+            v = n % 100;
+          return (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+        return '';
+      };
+
       return {
-        greeting: _timeBasedGreeting
+        greeting: _timeBasedGreeting,
+        ordinal: _getOrdinal
       };
     }
   ]);

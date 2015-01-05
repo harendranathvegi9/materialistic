@@ -1,0 +1,19 @@
+<md-content layout="column" md-theme="purple" class="mm-header" layout-padding>
+  <header layout="row" layout-padding>
+     <div class="mm-header-date" flex="80">
+      <h4>{{currentDateTime | date:"d"}}<sup>{{dateOridinal}}</sup> {{currentDateTime | date:"MMM yyyy"}}</h4>
+      <h1>{{currentDateTime | date:"h:mm a" | lowercase}}</h1>
+    </div>
+    <div class="mm-header-settings" layout="row" flex="20" layout-align="end start">
+      <div class="mm-settings">
+        <md-button class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp" ng-click="toggleSettingsRight()" aria-label="Settings Menu">
+        </md-button>
+      </div>
+    </div>
+  </header>
+  <footer layout="row" layout-padding>
+    <div class="mm-header-greeting" layout="column" flex="1">
+      <h2>{{greetingMessage}} Nisheed</h2>
+    </div>
+  </footer>
+</md-content>

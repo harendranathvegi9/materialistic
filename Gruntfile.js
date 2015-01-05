@@ -56,6 +56,9 @@ module.exports = function(grunt) {
             src: './bower_components/angular-material/angular-material.js',
             dest: './app/js/vendor/angular-material.js'
           }, {
+            src: './bower_components/angular-local-storage/dist/angular-local-storage.js',
+            dest: './app/js/vendor/angular-local-storage.js'
+          }, {
             src: './bower_components/angular-mocks/angular-mocks.js',
             dest: './app/js/vendor/angular-mocks.js'
           }, {
@@ -96,7 +99,7 @@ module.exports = function(grunt) {
             dest: './app/js/vendor/underscore.js'
           },
           //FONTS
-         /* {
+          /* {
             src: '**',
             dest: './app/fonts/',
             cwd: './bower_components/roboto-fontface/fonts/',
@@ -105,6 +108,17 @@ module.exports = function(grunt) {
             src: './bower_components/roboto-fontface/roboto-fontface.less',
             dest: './app/less/roboto-fontface.less',
           }*/
+        ]
+      },
+      icons: {
+        files: [
+          /*ICONS*/
+          {
+            src: 'sprite-navigation-*.*',
+            dest: './app/css/',
+            cwd: './bower_components/material-design-icons/sprites/css-sprite/',
+            expand: true
+          }
         ]
       }
     },
@@ -203,7 +217,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp']);
-  grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'requirejs', 'watch']);
+  grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'copy:icons', 'requirejs', 'watch']);
   grunt.registerTask('seedcommit', ['clean:seed', 'clean:js']);
   grunt.registerTask('unit', ['karma:unit']);
 };

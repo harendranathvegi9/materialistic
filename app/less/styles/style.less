@@ -1,15 +1,54 @@
+@import "./normalize";
 @import "./lesshat";
 @import "./variables";
 @import "./mixins";
 @import "./scrollbars";
 
-[layout-padding]{
-  padding: 8px;
-}
-
-.container{
+.mm-container{
   width: 320px;
   margin: 0 auto;
+}
+
+.mm-header{
+  background: url('../img/mm-header-bg.png') no-repeat top center;
+  background-size: cover;
+  color:#FFFFFF;
+  .mm-header-date{
+    margin-top: 8px;
+    h1{
+      font-weight: 100;
+      font-size: 40px;
+      padding:0 16px;
+    }
+    h4{
+      padding: 4px;
+      font-weight: 300;
+      padding:0 16px;
+    }
+    h1,h2,h3,h4,h5,h6{
+      margin: 0;
+    }
+  }
+  .mm-header-greeting{
+    margin-bottom: 8px;
+    h2{
+      margin: 0;
+      font-weight: 300;
+      padding:0 16px;
+    }
+  }
+}
+
+md-tabs.md-white-theme .md-header{
+  background-color: #FFFFFF;
+}
+md-tabs.md-white-theme md-tabs-ink-bar{
+  color: #E91E63;
+  background: #E91E63;
+}
+md-sidenav{
+  width: 240px;
+  min-width: 240px;
 }
 .header,.content{
   h1,p{
@@ -21,6 +60,7 @@
   padding-left: 24px;
   padding-right: 24px;
   z-index: 1;
+  border-top: 1px solid #E0E0E0;
   md-input-group{
     width: 100%;
     margin-top: 0;
@@ -32,7 +72,12 @@
 }
 
 .mm-product-list{
-  height: 400px;
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  min-height: 300px;
 }
 .mm-pointer{
   cursor: pointer;
@@ -54,8 +99,8 @@
 
 .md-tabs-content{
   display: block;
+  height: 420px;
   position: relative;
-  height: 456px;
   overflow: hidden;
 }
 .md-tab-content{

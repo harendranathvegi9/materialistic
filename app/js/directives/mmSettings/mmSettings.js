@@ -1,13 +1,13 @@
 /*global define*/
 define(['../module'],function (directivesModule) {
-  directivesModule.directive('mmHeading',[function(){
+  directivesModule.directive('mmSettings',[function(){
     return {
       replace:true,
       restrict:'E',
       link:function(scope,element,attributes){
         
       },
-      templateUrl:'js/directives/mmHeading/mmHeading.html'
+      templateUrl:'js/directives/mmSettings/mmSettings.html'
     };
   }]);
 });

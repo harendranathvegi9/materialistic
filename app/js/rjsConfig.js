@@ -10,6 +10,7 @@ require.config({
     angularanimate: 'vendor/angular-animate',
     angulararia: 'vendor/angular-aria',
     angularmaterial: 'vendor/angular-material',
+    angularlocalstorage: 'vendor/angular-local-storage',
     underscore: 'vendor/underscore'
   },
   shim: {
@@ -30,7 +31,10 @@ require.config({
       deps: ['angular']
     },
     angularmaterial: {
-      deps: ['angular','angulararia']
+      deps: ['angular', 'angulararia']
+    },
+    angularlocalstorage: {
+      deps: ['angular']
     },
     underscore: {
       exports: '_'

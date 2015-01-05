@@ -1,4 +1,5 @@
 /*global define*/
 define([
-  './mmHeading/mmHeading'
+  './mmHeader/mmHeader',
+  './mmSettings/mmSettings',
 ], function() {});

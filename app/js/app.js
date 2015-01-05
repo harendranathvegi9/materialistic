@@ -7,19 +7,21 @@ define([
   'angularanimate',
   'angulararia',
   'angularmaterial',
+  'angularlocalstorage',
   'underscore',
   './modules'
 ], function(angular) {
-  var myApp = angular.module('myApp', [
+  var materialisticMe = angular.module('materialisticMe', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
     'ngMaterial',
-    //'myApp.filter',
-    //'myApp.provider',
-    'myApp.service',
-    'myApp.directive',
-    'myApp.controller'
+    'LocalStorageModule',
+    //'materialisticMe.filter',
+    //'materialisticMe.provider',
+    'materialisticMe.service',
+    'materialisticMe.directive',
+    'materialisticMe.controller'
   ]);
-  return myApp;
+  return materialisticMe;
 });
