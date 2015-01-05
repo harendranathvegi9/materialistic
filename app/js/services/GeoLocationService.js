@@ -11,7 +11,6 @@ define(['./module', 'underscore'], function(servicesModule, _) {
         return navigator.geolocation.getCurrentPosition(_setCurrentLocation);
       };
       var _getCurrentAddress = function(position) {
-        console.log(position);
         return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             sensor: false,

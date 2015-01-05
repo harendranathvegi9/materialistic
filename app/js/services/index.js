@@ -1,5 +1,6 @@
 /*global define*/
 define([
   './MaterialisticCloudService',
-  './GeoLocationService'
+  './GeoLocationService',
+  './DateTimeService'
 ], function() {});

@@ -1,9 +1,9 @@
 /*global define*/
 /*global chrome*/
 define(['./module'], function(controllerModule) {
-  controllerModule.controller('AppMainController', ['$scope', '$interval', 'MaterialisticCloudService', 'GeoLocationService',
+  controllerModule.controller('AppMainController', ['$scope', '$interval', 'MaterialisticCloudService', 'GeoLocationService', 'DateTimeService',
 
-    function($scope, $interval, MaterialisticCloudService, GeoLocationService) {
+    function($scope, $interval, MaterialisticCloudService, GeoLocationService, DateTimeService) {
       $scope.app = {};
       $scope.app.appName = 'Angular Material RequireJS Seed';
       $scope.app.author = {
@@ -11,8 +11,10 @@ define(['./module'], function(controllerModule) {
         email: 'nisheedj@thoughtworks.com'
       };
 
-      $scope.currentTime = '';
-      $scope.address = "";
+      $scope.currentTime = new Date();
+      $scope.address = {
+        formatted_address:'Loading...'
+      };
       $scope.offers = {};
       $scope.offers.top = [{
         title: 'Loading...'
@@ -20,6 +22,7 @@ define(['./module'], function(controllerModule) {
       $scope.offers.dotd = [{
         title: 'Loading...'
       }];
+      $scope.greeting = DateTimeService.greeting();
 
 
       MaterialisticCloudService.api.flipkart.offers.top().then(function(response) {
@@ -47,9 +50,9 @@ define(['./module'], function(controllerModule) {
         }, function() {});
       };
 
-      var timeInterval = $interval(function(){
+      var timeInterval = $interval(function() {
         $scope.currentTime = new Date();
-      },1000);
+      }, 1000);
 
       $scope.app.appRepo = "https://github.com/nisheedj/angular-material-requirejs-seed.git";
 
