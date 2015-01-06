@@ -97,17 +97,18 @@ module.exports = function(grunt) {
           {
             src: './bower_components/underscore/underscore.js',
             dest: './app/js/vendor/underscore.js'
-          },
+          }
+        ]
+      },
+      fonts: {
+        files: [
           //FONTS
-          /* {
+          {
             src: '**',
             dest: './app/fonts/',
             cwd: './bower_components/roboto-fontface/fonts/',
             expand: true
-          }, {
-            src: './bower_components/roboto-fontface/roboto-fontface.less',
-            dest: './app/less/roboto-fontface.less',
-          }*/
+          }
         ]
       },
       icons: {
@@ -115,6 +116,12 @@ module.exports = function(grunt) {
           /*ICONS*/
           {
             src: 'sprite-navigation-*.*',
+            dest: './app/css/',
+            cwd: './bower_components/material-design-icons/sprites/css-sprite/',
+            expand: true
+          },
+          {
+            src: 'sprite-action-*.*',
             dest: './app/css/',
             cwd: './bower_components/material-design-icons/sprites/css-sprite/',
             expand: true
@@ -216,7 +223,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-connect');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp']);
+  grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp', 'copy:fonts']);
   grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'copy:icons', 'requirejs', 'watch']);
   grunt.registerTask('seedcommit', ['clean:seed', 'clean:js']);
   grunt.registerTask('unit', ['karma:unit']);

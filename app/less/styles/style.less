@@ -1,121 +1,27 @@
-@import "./normalize";
-@import "./lesshat";
-@import "./variables";
-@import "./mixins";
-@import "./scrollbars";
-
-.mm-container{
-  width: 320px;
-  margin: 0 auto;
-}
-
-.mm-header{
-  background: url('../img/mm-header-bg.png') no-repeat top center;
-  background-size: cover;
-  color:#FFFFFF;
-  .mm-header-date{
-    margin-top: 8px;
-    h1{
-      font-weight: 100;
-      font-size: 40px;
-      padding:0 16px;
-    }
-    h4{
-      padding: 4px;
-      font-weight: 300;
-      padding:0 16px;
-    }
-    h1,h2,h3,h4,h5,h6{
-      margin: 0;
-    }
-  }
-  .mm-header-greeting{
-    margin-bottom: 8px;
-    h2{
-      margin: 0;
-      font-weight: 300;
-      padding:0 16px;
-    }
-  }
-}
-
-md-tabs.md-white-theme .md-header{
-  background-color: #FFFFFF;
-}
-md-tabs.md-white-theme md-tabs-ink-bar{
-  color: #E91E63;
-  background: #E91E63;
-}
-md-sidenav{
-  width: 240px;
-  min-width: 240px;
-}
-.header,.content{
-  h1,p{
-    text-align: center;
-  }
-}
-
-.mm-search-product{
-  padding-left: 24px;
-  padding-right: 24px;
-  z-index: 1;
-  border-top: 1px solid #E0E0E0;
-  md-input-group{
-    width: 100%;
-    margin-top: 0;
-
-    > input{
-      width: 100%;
-    }
-  }
-}
-
-.mm-product-list{
-  position: absolute;
-  top: 55px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  min-height: 300px;
-}
-.mm-pointer{
-  cursor: pointer;
-}
-.md-title-right{
-  margin: 8px;
-  background-image:url('../img/product-loading.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.mm-product-image{
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  width: 70px;
-  height: 70px;
-}
-
-.md-tabs-content{
-  display: block;
-  height: 420px;
-  position: relative;
-  overflow: hidden;
-}
-.md-tab-content{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow-y:auto;
-  .transition(all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s)
-}
-
-.mm-header-text{
-  font-weight: 300;
-  margin:0;
-}
+@import "./includes/normalize";
+@import "./includes/lesshat";
+@import "./includes/variables";
+@import "./includes/mixins";
+@import "./includes/scrollbars";
+@import "./includes/roboto-fontface.less";
 
 html,body{
-  font-family: 'Roboto', sans-serif;
+  .font-regular;
+}
+
+.mm-app-title{
+  .font-medium;
+  font-size: 20px;
+  > span {
+    .font-light;
+  }
+}
+
+.md-toolbar-tools{
+  .md-button{
+    margin-right:24px;
+    &:last-child{
+      margin-right:0;
+    }
+  }
 }

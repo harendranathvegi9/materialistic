@@ -1,19 +1,25 @@
-<md-content layout="column" md-theme="purple" class="mm-header" layout-padding>
-  <header layout="row" layout-padding>
-     <div class="mm-header-date" flex="80">
-      <h4>{{currentDateTime | date:"d"}}<sup>{{dateOridinal}}</sup> {{currentDateTime | date:"MMM yyyy"}}</h4>
-      <h1>{{currentDateTime | date:"h:mm a" | lowercase}}</h1>
-    </div>
-    <div class="mm-header-settings" layout="row" flex="20" layout-align="end start">
-      <div class="mm-settings">
-        <md-button class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp" ng-click="toggleSettingsRight()" aria-label="Settings Menu">
-        </md-button>
+<md-content layout="column" md-theme="deep-purple" class="mm-header">
+  <md-toolbar class="md-tall">
+    <div class="md-toolbar-tools" layout="row">
+      <div class="" flex="2" layout="row" layout-align="start center">
+        <md-button class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp" aria-label="Open Menu" ng-click="toggleSettingsLeft()"></md-button>
+        <div class="mm-app-title">
+          <span>Materialistic</span>Me
+        </div>
+      </div>
+      <div class="" flex="1" layout="row" layout-align="end center">
+        <md-button class="icon-action-white icon-action-white-ic_search_white_24dp" aria-label="Search"></md-button>
+        <md-button class="icon-navigation-white icon-navigation-white-ic_more_vert_white_24dp" aria-label="Open Menu"></md-button>
       </div>
     </div>
-  </header>
-  <footer layout="row" layout-padding>
-    <div class="mm-header-greeting" layout="column" flex="1">
-      <h2>{{greetingMessage}} Nisheed</h2>
+  </md-toolbar>
+    <div layout="row">
+      <div>
+        {{greetingMessage}} Nisheed
+      </div>
+      <div>
+        {{currentDateTime | date:"d"}}<sup>{{dateOridinal}}</sup> {{currentDateTime | date:"MMM yyyy"}}
+        {{currentDateTime | date:"h:mm a" | lowercase}}
+      </div>
     </div>
-  </footer>
 </md-content>

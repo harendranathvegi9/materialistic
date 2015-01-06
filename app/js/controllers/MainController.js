@@ -10,7 +10,7 @@ define(['./module'], function(controllerModule) {
       };
       $scope.setOrdinal();
 
-      $scope.toggleSettingsRight = function() {
+      $scope.toggleSettingsLeft = function() {
         $mdSidenav('mm-settings-sidebar')
           .toggle()
           .then(function() {
