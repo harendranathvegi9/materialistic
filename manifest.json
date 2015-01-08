@@ -16,5 +16,9 @@
     "128": "app/img/bag-icon-128.png",
     "48": "app/img/bag-icon-48.png",
     "16": "app/img/bag-icon-16.png"
+  },
+  "browser_action": {
+    "default_icon": "app/img/bag-icon-48.png",
+    "default_popup": "app/index.html"
   }
 }

@@ -12,8 +12,6 @@
         <link rel="stylesheet" type="text/css" href="css/material/angular-material.css">
         <link rel="stylesheet" type="text/css" href="css/material/themes/deep-purple-theme.css">
         <link rel="stylesheet" type="text/css" href="css/material/themes/pink-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/sprite-navigation-white.css">
-        <link rel="stylesheet" type="text/css" href="css/sprite-action-white.css">
         <!-- Custom Styles/Overrides -->
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="icon" type="image/ico" href="favicon.ico">
@@ -29,7 +27,7 @@
             <mm-settings></mm-settings>
             <div layout="column">
                 <!-- TOOLBAR -->
-                <mm-header></mm-header>
+                <mm-header mm-bg="currentBg" mm-side-panel="panels.sidePanel" ></mm-header>
                 <!-- CONTENT -->
                 <md-content ng-view flex></md-content>
             </div>

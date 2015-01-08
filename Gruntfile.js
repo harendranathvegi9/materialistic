@@ -110,23 +110,6 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
-      },
-      icons: {
-        files: [
-          /*ICONS*/
-          {
-            src: 'sprite-navigation-*.*',
-            dest: './app/css/',
-            cwd: './bower_components/material-design-icons/sprites/css-sprite/',
-            expand: true
-          },
-          {
-            src: 'sprite-action-*.*',
-            dest: './app/css/',
-            cwd: './bower_components/material-design-icons/sprites/css-sprite/',
-            expand: true
-          }
-        ]
       }
     },
     jshint: {
@@ -224,7 +207,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp', 'copy:fonts']);
-  grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'copy:icons', 'requirejs', 'watch']);
+  grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'requirejs', 'watch']);
   grunt.registerTask('seedcommit', ['clean:seed', 'clean:js']);
   grunt.registerTask('unit', ['karma:unit']);
 };

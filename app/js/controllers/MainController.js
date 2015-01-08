@@ -1,31 +1,16 @@
 /*global define*/
 /*global chrome*/
 define(['./module'], function(controllerModule) {
-  controllerModule.controller('MainController', ['$scope', '$interval', '$mdSidenav', 'DateTimeService',
-    function($scope, $interval, $mdSidenav, DateTimeService) {
-      $scope.currentDateTime = new Date();
-      $scope.greetingMessage = DateTimeService.greeting();
-      $scope.setOrdinal = function() {
-        $scope.dateOridinal = DateTimeService.ordinal($scope.currentDateTime.getDate());
-      };
-      $scope.setOrdinal();
-
-      $scope.toggleSettingsLeft = function() {
-        $mdSidenav('mm-settings-sidebar')
-          .toggle()
-          .then(function() {
-            //Addition functionality
-          });
+  controllerModule.controller('MainController', ['$scope', '$interval',
+    function($scope, $interval) {
+      $scope.panels = {
+        sidePanel: 'mm-sidebar-panel',
+        contentPanel: 'mm-content-panel'
       };
 
-      var timeInterval = $interval(function() {
-        $scope.currentDateTime = new Date();
-        $scope.setOrdinal();
-      }, 1000);
+      $scope.currentBg = 9;//Math.floor(Math.random() * (13 - 1 + 1)) + 1;
 
-      $scope.$on('$destroy', function() {
-        $interval.cancel(timeInterval);
-      });
+      $scope.$on('$destroy', function() {});
     }
   ]);
 });

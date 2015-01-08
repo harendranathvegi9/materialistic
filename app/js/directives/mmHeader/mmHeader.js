@@ -1,17 +1,39 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmHeader', ['$window', '$mdMedia',
-    function($window, $mdMedia) {
+  directivesModule.directive('mmHeader', ['$window', '$interval', '$mdMedia', '$mdSidenav', 'DateTimeService',
+    function($window, $interval, $mdMedia, $mdSidenav, DateTimeService) {
       return {
         replace: true,
         restrict: 'E',
+        scope: {
+          mmBg: '=?',
+          mmSidePanel: '=?'
+        },
         link: function(scope, element, attributes) {
 
           scope.mdTall = $mdMedia('gt-md');
-          scope.mmBg = attributes.mmBg;
+          scope.mmBg = scope.mmBg || 1;
+          scope.currentDateTime = new Date();
+          scope.greetingMessage = DateTimeService.greeting();
+          scope.dateOridinal = DateTimeService.ordinal(scope.currentDateTime.getDate());
+
+          scope.toggleSettings = function() {
+            $mdSidenav(scope.mmSidePanel)
+              .toggle()
+              .then(function() {
+                //Addition functionality
+              });
+          };
+
+          var timeInterval = $interval(function() {
+            var dateTime = new Date();
+            scope.currentDateTime = dateTime;
+            scope.dateOridinal = DateTimeService.ordinal(dateTime.getDate());
+          }, 1000);
+
 
           /*Watch*/
-          var unWatchMmBg = scope.$watch(attributes.mmBg, function(value, old) {
+          var unWatchMmBg = scope.$watch('mmBg', function(value, old) {
             if (value !== old) {
               element.removeClass('mm-bg-' + old).addClass('mm-bg-' + value);
             } else {
@@ -28,6 +50,7 @@ define(['../module'], function(directivesModule) {
           scope.$on('$destroy', function() {
             unbindResize();
             unWatchMmBg();
+            $interval.cancel(timeInterval);
           });
         },
         templateUrl: 'js/directives/mmHeader/mmHeader.html'
