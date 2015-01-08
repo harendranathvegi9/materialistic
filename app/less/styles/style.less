@@ -7,21 +7,12 @@
 
 html,body{
   .font-regular;
+  font-size: 12px;
 }
-
-.mm-app-title{
-  .font-medium;
-  font-size: 20px;
-  > span {
-    .font-light;
-  }
+.mm-fixed-bottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
-
-.md-toolbar-tools{
-  .md-button{
-    margin-right:24px;
-    &:last-child{
-      margin-right:0;
-    }
-  }
-}
+.generate-bg-class(@bg-count);

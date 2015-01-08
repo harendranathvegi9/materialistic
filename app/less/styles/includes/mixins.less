@@ -22,3 +22,15 @@
 .font-black{
   .font-weight(900);
 }
+
+
+/*Background CSS*/
+.generate-bg-class(@n,@i:1) when (@i <= @n){
+
+  .mm-bg-@{i} {
+    background: url('../img/backgrounds/@{i}.jpg') no-repeat center center;
+    background-size: cover;
+  }
+  .generate-bg-class(@n, (@i + 1));
+
+}

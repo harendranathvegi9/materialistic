@@ -1,25 +1,10 @@
-<md-content layout="column" md-theme="deep-purple" class="mm-header">
-  <md-toolbar class="md-tall">
-    <div class="md-toolbar-tools" layout="row">
-      <div class="" flex="2" layout="row" layout-align="start center">
-        <md-button class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp" aria-label="Open Menu" ng-click="toggleSettingsLeft()"></md-button>
-        <div class="mm-app-title">
-          <span>Materialistic</span>Me
-        </div>
-      </div>
-      <div class="" flex="1" layout="row" layout-align="end center">
-        <md-button class="icon-action-white icon-action-white-ic_search_white_24dp" aria-label="Search"></md-button>
-        <md-button class="icon-navigation-white icon-navigation-white-ic_more_vert_white_24dp" aria-label="Open Menu"></md-button>
-      </div>
-    </div>
-  </md-toolbar>
-    <div layout="row">
-      <div>
-        {{greetingMessage}} Nisheed
-      </div>
-      <div>
-        {{currentDateTime | date:"d"}}<sup>{{dateOridinal}}</sup> {{currentDateTime | date:"MMM yyyy"}}
-        {{currentDateTime | date:"h:mm a" | lowercase}}
-      </div>
-    </div>
-</md-content>
+<md-toolbar ng-class="{'md-tall' : mdTall}" md-theme="deep-purple" mm-bg="11">
+  <div class="md-toolbar-tools">
+      <md-button class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp" aria-label="Open Menu" ng-click="toggleSettingsLeft()" hide-gt-md></md-button>
+      <span>Materialistic<span>Me</span></span>
+      <span flex></span>
+      <md-button aria-label="Search" class="icon-action-white icon-action-white-ic_search_white_24dp"></md-button>
+      <md-button aria-label="Open Menu" class="icon-navigation-white icon-navigation-white-ic_more_vert_white_24dp"></md-button>
+  </div>
+  <md-progress-linear md-mode="indeterminate" md-theme="pink" class="mm-fixed-bottom"></md-progress-linear>
+</md-toolbar>
