@@ -1,25 +1,40 @@
 <md-toolbar ng-class="{'md-tall' : mdTall}" class="mm-header">
   <div class="md-toolbar-tools">
-      <md-button aria-label="Open Sidebar" ng-click="toggleSettings()" hide-gt-md>
+      
+      <md-button class="mm-header-nav-toggle" aria-label="Open Sidebar" ng-click="toggleSettings()" hide-gt-md>
         <md-tooltip>
           Navigation
         </md-tooltip>
         <md-icon mm-icon-fill="white" icon="img/icons/ic_menu_24px.svg"></md-icon>
       </md-button>
+      
       <span class="mm-app-name">Materialistic<span>Me</span></span>
-      <span flex></span>
-      <md-button aria-label="Search">
+      <span flex class="mm-header-spacer"></span>
+      
+      <md-button class="mm-header-search-toggle" aria-label="Search" ng-click="toggleSearch()">
         <md-tooltip>
           Web Search
         </md-tooltip>
         <md-icon mm-icon-fill="white" icon="img/icons/ic_search_24px.svg"></md-icon>
       </md-button>
-      <md-button aria-label="Open Menu">
+      
+      <form flex layout="row" layout-align="center center" class="mm-header-search-form" ng-submit="search()">
+        <md-button ng-click="toggleSearch()" aria-label="Close Search">
+          <md-icon mm-icon-fill="white" icon="img/icons/ic_arrow_back_24px.svg"></md-icon>
+        </md-button>
+        <md-input-group class="mm-header-search" md-theme="pink" flex>
+            <md-input  ng-model="myValue"autocapitalize="off" type="text" placeholder="Search">
+            </md-input>
+        </md-input-group>
+      </form>
+
+      <md-button class="mm-header-menu-toggle" aria-label="Open Menu">
         <md-tooltip>
           Menu
         </md-tooltip>
         <md-icon mm-icon-fill="white" icon="img/icons/ic_more_vert_24px.svg"></md-icon>
       </md-button>
+  
   </div>
   <div layout="row" layout-margin layout-padding class="mm-heading">
     <div flex class="mm-greeting">

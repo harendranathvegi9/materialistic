@@ -16,6 +16,7 @@ define(['../module'], function(directivesModule) {
           scope.currentDateTime = new Date();
           scope.greetingMessage = DateTimeService.greeting();
           scope.dateOridinal = DateTimeService.ordinal(scope.currentDateTime.getDate());
+          scope.searchActive = false;
 
           scope.toggleSettings = function() {
             $mdSidenav(scope.mmSidePanel)
@@ -23,6 +24,18 @@ define(['../module'], function(directivesModule) {
               .then(function() {
                 //Addition functionality
               });
+          };
+
+          scope.toggleSearch = function() {
+            scope.searchActive = !scope.searchActive;
+            if (scope.searchActive === true) {
+              element.addClass('mm-search-active');
+              angular.element('.mm-header-search > input[type="text"]').focus();
+            } else {
+              element.removeClass('mm-search-active');
+              angular.element('.mm-header-search > input[type="text"]').blur();
+            }
+            return;
           };
 
           var timeInterval = $interval(function() {
