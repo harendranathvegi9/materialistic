@@ -20,16 +20,22 @@ h1,h1,h3,h4,h5,h6{
 .mm-header{
   position: relative;
 
+  .active-enable{
+    display: none;
+  }
+
+  &.mm-search-active{
+    .active-disable{
+      display: none;
+    }
+    .active-enable{
+      display: block;
+    }
+  }
+
   &.mm-search-active{
     .mm-header-search-form{
       .display(flex);
-    }
-    .mm-header-nav-toggle,
-    .mm-header-search-toggle,
-    .mm-header-menu-toggle,
-    .mm-app-name,
-    .mm-header-spacer{
-      display: none;
     }
   }
 
@@ -55,7 +61,7 @@ h1,h1,h3,h4,h5,h6{
       font-size: 0.875em;
       padding: 0 16px;
       > input{
-        .font-regular;
+        .font-light;
         border-color: transparent;
         width: 100%;
       }
