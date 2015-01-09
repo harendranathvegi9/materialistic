@@ -1,7 +1,7 @@
 <md-toolbar ng-class="{'md-tall' : mdTall}" class="mm-header">
   <div class="md-toolbar-tools">
       
-      <md-button class="mm-header-nav-toggle active-disable" aria-label="Open Sidebar" ng-click="toggleSettings()" hide-gt-md>
+      <md-button class="mm-header-nav-toggle active-disable" aria-label="Open Sidebar" ng-click="toggleSettings()">
         <md-tooltip>
           Navigation
         </md-tooltip>
@@ -35,7 +35,7 @@
         <md-icon mm-icon-fill="white" icon="img/icons/ic_refresh_24px.svg"></md-icon>
       </md-button>
 
-      <md-button class="mm-header-menu-toggle active-disable" aria-label="Open Menu">
+      <md-button class="mm-header-menu-toggle active-disable" aria-label="Open Menu" ng-click="toggleMenu($event)">
         <md-tooltip>
           Menu
         </md-tooltip>

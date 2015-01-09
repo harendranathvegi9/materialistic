@@ -1,7 +1,7 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmHeader', ['$window', '$interval', '$mdMedia', '$mdSidenav', 'DateTimeService',
-    function($window, $interval, $mdMedia, $mdSidenav, DateTimeService) {
+  directivesModule.directive('mmHeader', ['$window', '$interval', '$mdMedia', '$mdSidenav', '$mdBottomSheet', 'DateTimeService',
+    function($window, $interval, $mdMedia, $mdSidenav, $mdBottomSheet, DateTimeService) {
       return {
         replace: true,
         restrict: 'E',
@@ -36,6 +36,16 @@ define(['../module'], function(directivesModule) {
               angular.element('.mm-header-search > input[type="text"]').blur();
             }
             return;
+          };
+
+          scope.toggleMenu = function($event) {
+             $mdBottomSheet.show({
+                templateUrl: 'partials/navigation.html',
+                controller: 'BottomSheetController',
+                targetEvent: $event
+              }).then(function(clickedItem) {
+                scope.alert = clickedItem.name + ' clicked!';
+              });
           };
 
           var timeInterval = $interval(function() {

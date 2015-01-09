@@ -1,0 +1,12 @@
+<md-bottom-sheet class="md-grid" md-theme="pink">
+  <md-list layout-align="center center">
+    <md-item ng-repeat="item in menuItems">
+      <md-button class="md-grid-item-content" aria-label="{{item.name}}" ng-click="listItemClick($index)">
+        <div class="md-icon-container">
+          <md-icon mm-icon-fill="#e91e63" icon="img/icons/ic_{{item.icon}}_48px.svg"></md-icon>
+        </div>
+        <p class="md-grid-text"> {{ item.name }} </p>
+      </md-button>
+    </md-item>
+  </md-list>
+</md-bottom-sheet>

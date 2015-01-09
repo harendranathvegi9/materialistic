@@ -1,5 +1,6 @@
 /*global define*/
 define([
   './MainController',
-  './AppMainController'
+  './AppMainController',
+  './BottomSheetController'
 ], function() {});

@@ -1,8 +1,8 @@
 /*global define*/
 /*Shim to set the color of the icons*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmIconFill', [
-    function() {
+  directivesModule.directive('mmIconFill', ['$timeout',
+    function($timeout) {
       return {
         replace: true,
         restrict: 'A',
