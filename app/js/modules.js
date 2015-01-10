@@ -1,6 +1,6 @@
 /*global define*/
 define([
-  //'./filters/index',
+  './filters/index',
   //'./providers/index',
   './services/index',
   './directives/index',

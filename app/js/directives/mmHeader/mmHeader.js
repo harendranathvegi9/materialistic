@@ -1,7 +1,7 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmHeader', ['$window', '$interval', '$mdMedia', '$mdSidenav', '$mdBottomSheet', 'DateTimeService',
-    function($window, $interval, $mdMedia, $mdSidenav, $mdBottomSheet, DateTimeService) {
+  directivesModule.directive('mmHeader', ['$rootScope', '$window', '$interval', '$timeout', '$mdMedia', '$mdSidenav', '$mdBottomSheet', 'DateTimeService',
+    function($rootScope, $window, $interval, $timeout, $mdMedia, $mdSidenav, $mdBottomSheet, DateTimeService) {
       return {
         replace: true,
         restrict: 'E',
@@ -29,23 +29,36 @@ define(['../module'], function(directivesModule) {
           scope.toggleSearch = function() {
             scope.searchActive = !scope.searchActive;
             if (scope.searchActive === true) {
+
               element.addClass('mm-search-active');
-              angular.element('.mm-header-search > input[type="text"]').focus();
+
+              $timeout(function() {
+                angular.element('.mm-header-search-form').css('display', 'flex');
+                angular.element('.mm-header-search > input[type="text"]').focus();
+                angular.element('.active-disable').css('display', 'none');
+              }, 300, false);
+
             } else {
+
               element.removeClass('mm-search-active');
+              angular.element('.mm-header-search-form').css('display', 'none');
               angular.element('.mm-header-search > input[type="text"]').blur();
+
+              $timeout(function() {
+                angular.element('.active-disable').css('display', 'block');
+              }, 300, false);
             }
             return;
           };
 
           scope.toggleMenu = function($event) {
-             $mdBottomSheet.show({
-                templateUrl: 'partials/navigation.html',
-                controller: 'BottomSheetController',
-                targetEvent: $event
-              }).then(function(clickedItem) {
-                scope.alert = clickedItem.name + ' clicked!';
-              });
+            $mdBottomSheet.show({
+              templateUrl: 'partials/navigation.html',
+              controller: 'BottomSheetController',
+              targetEvent: $event
+            }).then(function(clickedItem) {
+              scope.alert = clickedItem.name + ' clicked!';
+            });
           };
 
           var timeInterval = $interval(function() {
@@ -67,6 +80,10 @@ define(['../module'], function(directivesModule) {
           /*Events*/
           var unbindResize = angular.element($window).on('resize', function() {
             scope.mdTall = $mdMedia('gt-md');
+          });
+
+          $rootScope.$on('Materialistic:CloseSideBar', function(e) {
+            scope.toggleSettings();
           });
 
           /*Unbind*/

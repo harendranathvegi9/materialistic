@@ -10,7 +10,10 @@ define(['./module'], function(controllerModule) {
         icon: 'settings'
       }, {
         name: 'FAQ',
-        icon: 'question_answer'
+        icon: 'question answer'
+      }, {
+        name: 'DUMMY',
+        icon: ''
       }];
 
       console.log($routeParams);

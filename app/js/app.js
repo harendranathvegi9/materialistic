@@ -17,7 +17,7 @@ define([
     'ngAnimate',
     'ngMaterial',
     'LocalStorageModule',
-    //'materialisticMe.filter',
+    'materialisticMe.filter',
     //'materialisticMe.provider',
     'materialisticMe.service',
     'materialisticMe.directive',

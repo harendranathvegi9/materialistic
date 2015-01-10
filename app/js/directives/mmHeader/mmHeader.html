@@ -19,10 +19,10 @@
       </md-button>
       
       <form flex layout="row" layout-align="center center" class="mm-header-search-form" ng-submit="search()">
-        <md-button ng-click="toggleSearch()" aria-label="Close Search">
+        <md-button class="active-enable" ng-click="toggleSearch()" aria-label="Close Search">
           <md-icon mm-icon-fill="white" icon="img/icons/ic_arrow_back_24px.svg"></md-icon>
         </md-button>
-        <md-input-group class="mm-header-search" md-theme="pink" flex>
+        <md-input-group class="mm-header-search active-enable" md-theme="pink" flex>
             <md-input  ng-model="myValue"autocapitalize="off" type="text" placeholder="Search">
             </md-input>
         </md-input-group>

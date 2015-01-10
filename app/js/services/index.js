@@ -2,5 +2,6 @@
 define([
   './MaterialisticCloudService',
   './GeoLocationService',
-  './DateTimeService'
+  './DateTimeService',
+  './ChromeStorageService'
 ], function() {});

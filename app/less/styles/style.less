@@ -1,9 +1,13 @@
 @import "./includes/normalize";
 @import "./includes/lesshat";
+@import "./includes/animated";
 @import "./includes/variables";
 @import "./includes/mixins";
 @import "./includes/scrollbars";
-@import "./includes/roboto-fontface.less";
+@import "./includes/roboto-fontface";
+
+/*Components*/
+@import "./includes/components/header";
 
 html,body{
   .font-medium;
@@ -15,119 +19,6 @@ html,body{
 
 h1,h1,h3,h4,h5,h6{
   .font-bold;
-}
-
-.mm-header{
-  position: relative;
-
-  .active-enable{
-    display: none;
-  }
-
-  &.mm-search-active{
-    .active-disable{
-      display: none;
-    }
-    .active-enable{
-      display: block;
-    }
-  }
-
-  &.mm-search-active{
-    .mm-header-search-form{
-      .display(flex);
-    }
-  }
-
-  .mm-add-todo{
-    position: absolute;
-    bottom: -24px;
-    right: 24px;
-    display: none;
-  }
-
-  .mm-fixed-bottom{
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-  }
-
-
-  .mm-header-search-form{
-    display: none;
-    
-    .mm-header-search{
-      font-size: 0.875em;
-      padding: 0 16px;
-      > input{
-        .font-light;
-        border-color: transparent;
-        width: 100%;
-      }
-    }
-  }
-
-  .mm-app-name{
-    .font-light;
-    > span{
-      .font-medium;
-    }
-  }
-
-  .mm-heading{
-    display: none;
-    
-    .mm-greeting{
-      padding: 0 30px;
-      .transition(all 0.3s 0s ease-in-out);
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.50);
-      @media(min-width:1024px){
-        padding: 0 30px 0 80px;
-      }
-    }
-    .mm-datetime-weather{
-      padding-right: 24px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.50);
-    }
-
-    .mm-greeting-msg{
-      .font-light;
-      .elipses-text;
-      margin: 0;
-    }
-    .mm-greeting-name{
-      .font-regular;
-      .elipses-text;
-      font-size: 1.875em;
-      margin: 5px 0;
-    }
-    .mm-datetime-time{
-      .font-thin;
-      font-size: 2.500em;
-      line-height: 1.25em;
-      margin:0;
-    }
-    .mm-datetime-date{
-      .font-light;
-      margin:0;
-      font-size: 1.000em;
-    }
-  }
-
-  &.md-tall{
-    .mm-heading{
-      .display(flex);
-    }
-    .mm-add-todo{
-      display: block;
-      color: #FFF;
-    }
-  }
-}
-
-.md-sticky-clone{
-  top:64px;
 }
 
 .generate-bg-class(@bg-count);

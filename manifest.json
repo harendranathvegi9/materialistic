@@ -3,7 +3,7 @@
   "name": "Materialistic Me",
   "description": "<description_of_the_chrome_plugin>",
   "version": "0.1",
-  "permissions": ["geolocation"],
+  "permissions": ["geolocation","storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false

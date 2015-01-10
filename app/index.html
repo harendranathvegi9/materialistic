@@ -25,11 +25,11 @@
     </head>
     <body ng-controller="MainController" layout="row">
             <mm-settings></mm-settings>
-            <div layout="column">
+            <div layout="column" flex>
                 <!-- TOOLBAR -->
                 <mm-header mm-bg="currentBg" mm-side-panel="panels.sidePanel" ></mm-header>
                 <!-- CONTENT -->
-                <md-content ng-view flex></md-content>
+                <md-content ng-view flex class="mm-view"></md-content>
             </div>
         </md-content>   
         <!-- Hammer JS has to be preloaded -->
