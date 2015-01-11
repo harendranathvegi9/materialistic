@@ -1,7 +1,8 @@
 /*global define*/
 define([
-  './MaterialisticCloudService',
+  './RhCloudService',
   './GeoLocationService',
   './DateTimeService',
-  './ChromeStorageService'
+  './ChromeStorageService',
+  './WordpressService'
 ], function() {});
