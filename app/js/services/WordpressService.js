@@ -34,9 +34,11 @@ define(['./module', 'underscore'], function(servicesModule, _) {
       var _getLatestFollowed = function(limit, siteList) {
         limit = limit || _limits.posts;
         var batchParams = _generateBatchUrl(_endpoints.posts, siteList, {
-          number: limit
+          number: limit,
+          meta: 'site'
         });
-        return $http.get(_wpApiUrl + _endpoints.batch + '?' + decodeURIComponent( $.param( batchParams )));
+        console.log(decodeURIComponent($.param(batchParams)));
+        return $http.get(_wpApiUrl + _endpoints.batch + '?' + decodeURIComponent($.param(batchParams)));
       };
 
       var _generateBatchUrl = function(endpoint, siteList, params) {

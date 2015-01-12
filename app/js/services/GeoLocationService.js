@@ -36,7 +36,7 @@ define(['./module', 'underscore'], function(servicesModule, _) {
           _getMapsAddress(position).then(function(response) {
             var timestamp = new Date();
             if (response.data.status === 'OK') {
-              var address = _getAddressByType(response.data, 'locality');
+              var address = _getAddressByType(response.data, 'postal_code');
               deffered.resolve({
                 address: address,
                 timestamp: timestamp

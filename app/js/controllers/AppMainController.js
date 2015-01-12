@@ -2,8 +2,8 @@
 /*global chrome*/
 define(['./module'], function(controllerModule) {
   controllerModule.controller('AppMainController', [
-    '$scope', 'RhCloudService', 'GeoLocationService', 'ChromeStorageService', 'WordpressService',
-    function($scope, RhCloudService, GeoLocationService, ChromeStorageService, WordpressService) {
+    '$scope', 'RhCloudService', 'ChromeStorageService', 'WordpressService',
+    function($scope, RhCloudService, ChromeStorageService, WordpressService) {
 
       $scope.className = 'mm-home';
 
@@ -24,12 +24,6 @@ define(['./module'], function(controllerModule) {
       RhCloudService.api.flipkart.offers.dotd().then(function(response) {
         $scope.offers.dotd = response.data.dotdList;
         console.log('Rh Cloud', response.data);
-      });
-
-      GeoLocationService.geoLocate().then(function(data) {
-        console.log('Geo Location', data);
-      }, function(error) {
-        console.log(error);
       });
 
       WordpressService.getFresh(40).then(function(response) {

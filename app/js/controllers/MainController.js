@@ -8,7 +8,7 @@ define(['./module'], function(controllerModule) {
         contentPanel: 'mm-content-panel'
       };
 
-      $scope.currentBg = 9;//Math.floor(Math.random() * (13 - 1 + 1)) + 1;
+      $scope.currentBg = 7;//Math.floor(Math.random() * (13 - 1 + 1)) + 1;
 
       $scope.$on('$destroy', function() {});
     }

@@ -22,3 +22,55 @@ h1,h1,h3,h4,h5,h6{
 }
 
 .generate-bg-class(@bg-count);
+
+
+
+@-webkit-keyframes location-pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8);
+            transform: scale3d(0.8, 0.8, 0.8);
+  }
+
+  80% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100%{
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.mm-sidebar-location{
+  .font-light;
+  font-size: 16px;
+  padding:0 8px;
+
+  md-icon{
+    .animation(location-pulse 3s 0s infinite);
+    margin: 5px 0;
+  }
+}
+
+.md-sidebar-list{
+  .md-button{
+    padding:8px 16px;
+    md-icon{
+      margin: 5px 16px 0 0;
+    }
+  }
+}
+
+.mm-sidebar-footer{
+  .font-regular;
+  font-size: 14px;
+  padding: 16px;
+  text-align: center;
+  color: #e91e63;
+}

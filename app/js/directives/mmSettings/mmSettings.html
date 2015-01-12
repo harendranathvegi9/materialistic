@@ -1,45 +1,47 @@
 <md-sidenav md-theme="pink" class="md-sidenav-left md-whiteframe-z2 mm-sidebar-panel" md-component-id="mm-sidebar-panel" layout="column">
-    <md-toolbar class="md-whiteframe-z1">
-      <div class="md-toolbar-tools">
-        <span>Navigation</span>
-        <span flex></span>
-        <md-button aria-label="Close Sidebar" ng-click="toggleSidebar()">
-          <md-icon mm-icon-fill="white" icon="img/icons/ic_close_24px.svg"></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
+    <!-- sidebar header -->
+    <mm-sidebar-header></mm-sidebar-header>
     <md-content flex>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <md-list class="md-sidebar-list">
+        <md-item>
+          <md-item-content>
+            <md-button layout="row" layout-align="start center" flex>
+               <md-icon mm-icon-fill="#e91e63" icon="img/icons/ic_home_24px.svg"></md-icon>
+               <span>Home</span>
+            </md-button>
+          </md-item-content>
+          <md-divider></md-divider>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-button layout="row" layout-align="start center" flex>
+               <md-icon mm-icon-fill="#e91e63" icon="img/icons/ic_search_24px.svg"></md-icon>
+               <span>Search</span>
+            </md-button>
+          </md-item-content>
+          <md-divider></md-divider>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-button layout="row" layout-align="start center" flex>
+               <md-icon mm-icon-fill="#e91e63" icon="img/icons/ic_settings_24px.svg"></md-icon>
+               <span>Settings</span>
+            </md-button>
+          </md-item-content>
+          <md-divider></md-divider>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-button layout="row" layout-align="start center" flex>
+               <md-icon mm-icon-fill="#e91e63" icon="img/icons/ic_grade_24px.svg"></md-icon>
+               <span>About</span>
+            </md-button>
+          </md-item-content>
+          <md-divider></md-divider>
+        </md-item>
+      </md-list>
     </md-content>
+    <div class="mm-sidebar-footer">
+      <span>&copy; Nisheed Jagadish 2015</span>
+    </div>
 </md-sidenav>
