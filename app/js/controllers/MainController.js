@@ -1,14 +1,23 @@
 /*global define*/
 /*global chrome*/
 define(['./module'], function(controllerModule) {
-  controllerModule.controller('MainController', ['$scope', '$interval',
-    function($scope, $interval) {
+  controllerModule.controller('MainController', ['$scope', '$interval', 'AppStorageService',
+    function($scope, $interval, AppStorageService) {
+
       $scope.panels = {
         sidePanel: 'mm-sidebar-panel',
         contentPanel: 'mm-content-panel'
       };
 
-      $scope.currentBg = 7;//Math.floor(Math.random() * (13 - 1 + 1)) + 1;
+      if(AppStorageService.getDefaults() === null){
+        AppStorageService.setDefaults();
+      }
+
+      $scope.appData = AppStorageService.getAppData();
+
+      /*To randomize*/
+      //Math.floor(Math.random() * (13 - 1 + 1)) + 1;
+      $scope.currentBg = $scope.appData.defaultBg;
 
       $scope.$on('$destroy', function() {});
     }

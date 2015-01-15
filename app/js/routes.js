@@ -9,7 +9,7 @@ define(['./app'], function(app) {
             templateUrl: 'partials/home.html'
           })
           .when('/settings', {
-            controller: 'AppMainController',
+            controller: 'SettingsController',
             templateUrl: 'partials/settings.html'
           })
           .when('/about', {

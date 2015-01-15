@@ -1,5 +1,6 @@
 /*global define*/
 define([
+  './AppStorageService',
   './RhCloudService',
   './GeoLocationService',
   './DateTimeService',

@@ -1,7 +1,7 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmHeader', ['$rootScope', '$window', '$interval', '$timeout', '$mdMedia', '$mdSidenav', '$mdBottomSheet', 'DateTimeService',
-    function($rootScope, $window, $interval, $timeout, $mdMedia, $mdSidenav, $mdBottomSheet, DateTimeService) {
+  directivesModule.directive('mmHeader', ['$rootScope', '$window', '$interval', '$timeout', '$mdMedia', '$mdSidenav', 'DateTimeService',
+    function($rootScope, $window, $interval, $timeout, $mdMedia, $mdSidenav,  DateTimeService) {
       return {
         replace: true,
         restrict: 'E',
@@ -49,16 +49,6 @@ define(['../module'], function(directivesModule) {
               }, 300, false);
             }
             return;
-          };
-
-          scope.toggleMenu = function($event) {
-            $mdBottomSheet.show({
-              templateUrl: 'partials/navigation.html',
-              controller: 'BottomSheetController',
-              targetEvent: $event
-            }).then(function(clickedItem) {
-              scope.alert = clickedItem.name + ' clicked!';
-            });
           };
 
           var timeInterval = $interval(function() {

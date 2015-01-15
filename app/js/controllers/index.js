@@ -2,5 +2,5 @@
 define([
   './MainController',
   './AppMainController',
-  './BottomSheetController'
+  './SettingsController'
 ], function() {});
