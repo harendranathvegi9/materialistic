@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     clean: {
       myApp: {
-        src: ['./app/css', './app/js/vendor', './app/fonts'],
+        src: ['./app/css', './app/js/vendor', './app/font'],
         options: {
           force: true
         }
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         }
       },
       seed: {
-        src: ['./app/css', './app/js/vendor', './app/fonts', './app/img'],
+        src: ['./app/css', './app/js/vendor', './app/font', './app/img'],
         options: {
           force: true
         }
@@ -53,9 +53,6 @@ module.exports = function(grunt) {
             src: './bower_components/angular-aria/angular-aria.js',
             dest: './app/js/vendor/angular-aria.js'
           }, {
-            src: './bower_components/angular-material/angular-material.js',
-            dest: './app/js/vendor/angular-material.js'
-          }, {
             src: './bower_components/angular-local-storage/dist/angular-local-storage.js',
             dest: './app/js/vendor/angular-local-storage.js'
           }, {
@@ -64,16 +61,6 @@ module.exports = function(grunt) {
           }, {
             src: './bower_components/angular-resource/angular-resource.js',
             dest: './app/js/vendor/angular-resource.js'
-          },
-          /*material css*/
-          {
-            src: './bower_components/angular-material/angular-material.css',
-            dest: './app/css/material/angular-material.css'
-          }, {
-            src: '*.css',
-            dest: './app/css/material/themes/',
-            cwd: './bower_components/angular-material/themes/',
-            expand: true
           },
           /*Hammer*/
           {
@@ -97,6 +84,27 @@ module.exports = function(grunt) {
           {
             src: './bower_components/underscore/underscore.js',
             dest: './app/js/vendor/underscore.js'
+          },
+          /*Materialize CSS*/
+          {
+            src: '**',
+            dest: './app/css/',
+            cwd: './bower_components/materialize/dist/css',
+            expand: true
+          },
+          /*Waves*/
+          {
+            src: './bower_components/materialize/js/waves.js',
+            dest: './app/js/vendor/waves.js'
+          }, {
+            src: './bower_components/velocity/velocity.js',
+            dest: './app/js/vendor/velocity.js'
+          }, {
+            src: './bower_components/jquery.easing/js/jquery.easing.js',
+            dest: './app/js/vendor/jquery.easing.js'
+          }, {
+            src: './bower_components/jquery.hammer.js/jquery.hammer.js',
+            dest: './app/js/vendor/jquery.hammer.js'
           }
         ]
       },
@@ -105,12 +113,34 @@ module.exports = function(grunt) {
           //FONTS
           {
             src: '**',
-            dest: './app/fonts/',
-            cwd: './bower_components/roboto-fontface/fonts/',
+            dest: './app/font/',
+            cwd: './bower_components/materialize/dist/font',
             expand: true
           }
         ]
       }
+    },
+    concat: {
+      options: {
+        separator: ';',
+      },
+      materialize: {
+        src: [
+          './bower_components/materialize/js/cards.js',
+          './bower_components/materialize/js/collapsible.js',
+          './bower_components/materialize/js/dropdown.js',
+          './bower_components/materialize/js/forms.js',
+          './bower_components/materialize/js/leanModal.js',
+          './bower_components/materialize/js/materialBox.js',
+          './bower_components/materialize/js/parallax.js',
+          './bower_components/materialize/js/sideNav.js',
+          './bower_components/materialize/js/slider.js',
+          './bower_components/materialize/js/tabs.js',
+          './bower_components/materialize/js/toast.js',
+          './bower_components/materialize/js/tooltip.js'
+        ],
+        dest: './app/js/vendor/materialize.js',
+      },
     },
     jshint: {
       options: {
@@ -206,7 +236,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-connect');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp', 'copy:fonts']);
+  grunt.registerTask('firstrun', ['clean:myApp', 'copy:myApp', 'concat:materialize', 'copy:fonts']);
   grunt.registerTask('default', ['clean:js', 'jshint', 'less', 'requirejs', 'watch']);
   grunt.registerTask('seedcommit', ['clean:seed', 'clean:js']);
   grunt.registerTask('unit', ['karma:unit']);

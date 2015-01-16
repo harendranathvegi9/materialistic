@@ -2,20 +2,20 @@
 define([
   'angular',
   'jquery',
+  'waves',
+  'materialize',
   'angularroute',
   'angularsanitize',
   'angularanimate',
   'angulararia',
-  'angularmaterial',
   'angularlocalstorage',
-  'underscore',
   './modules'
 ], function(angular) {
   var materialisticMe = angular.module('materialisticMe', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
-    'ngMaterial',
+    'ngAria',
     'LocalStorageModule',
     'materialisticMe.filter',
     //'materialisticMe.provider',

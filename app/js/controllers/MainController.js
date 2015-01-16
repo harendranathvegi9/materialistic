@@ -1,15 +1,10 @@
 /*global define*/
-/*global chrome*/
+/*global Waves*/
 define(['./module'], function(controllerModule) {
   controllerModule.controller('MainController', ['$scope', '$interval', 'AppStorageService',
     function($scope, $interval, AppStorageService) {
 
-      $scope.panels = {
-        sidePanel: 'mm-sidebar-panel',
-        contentPanel: 'mm-content-panel'
-      };
-
-      if(AppStorageService.getDefaults() === null){
+      if (AppStorageService.getDefaults() === null) {
         AppStorageService.setDefaults();
       }
 

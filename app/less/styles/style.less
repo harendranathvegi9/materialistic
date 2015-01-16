@@ -1,76 +1,42 @@
-@import "./includes/normalize";
 @import "./includes/lesshat";
 @import "./includes/animated";
 @import "./includes/variables";
 @import "./includes/mixins";
-@import "./includes/scrollbars";
-@import "./includes/roboto-fontface";
-
-/*Components*/
-@import "./includes/components/header";
 
 html,body{
-  .font-medium;
-  font-size: 1.000em;
-  -webkit-user-select: none;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body{
+  min-width: 340px;
   min-height: 480px;
-  min-width: 320px;
 }
 
-h1,h1,h3,h4,h5,h6{
-  .font-bold;
+nav{
+  overflow: hidden;
 }
 
-.generate-bg-class(@bg-count);
 
 
-
-@-webkit-keyframes location-pulse {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.8, 0.8, 0.8);
-            transform: scale3d(0.8, 0.8, 0.8);
-  }
-
-  80% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-            transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  100%{
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+@media only screen and (min-width: 1200px)
+{
+  body {
+  font-size: 15px;
   }
 }
 
-.mm-sidebar-location{
-  .font-light;
-  font-size: 16px;
-  padding:0 8px;
-
-  md-icon{
-    .animation(location-pulse 3s 0s infinite);
-    margin: 5px 0;
+@media only screen and (min-width: 992px){
+  body {
+  font-size: 14.5px;
   }
 }
 
-.md-sidebar-list{
-  .md-button{
-    padding:8px 16px;
-    md-icon{
-      margin: 5px 16px 0 0;
-    }
-  }
-}
-
-.mm-sidebar-footer{
-  .font-regular;
+@media only screen and (min-width: 0)
+{
+  body {
   font-size: 14px;
-  padding: 16px;
-  text-align: center;
-  color: #e91e63;
+  }
 }

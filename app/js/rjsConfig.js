@@ -9,9 +9,14 @@ require.config({
     angularsanitize: 'vendor/angular-sanitize',
     angularanimate: 'vendor/angular-animate',
     angulararia: 'vendor/angular-aria',
-    angularmaterial: 'vendor/angular-material',
     angularlocalstorage: 'vendor/angular-local-storage',
-    underscore: 'vendor/underscore'
+    underscore: 'vendor/underscore',
+    hammerjs: 'vendor/hammer',
+    waves: 'vendor/waves',
+    velocity: 'vendor/velocity',
+    jqueryeasing: 'vendor/jquery.easing',
+    jqueryhammer: 'vendor/jquery.hammer',
+    materialize: 'vendor/materialize'
   },
   shim: {
     angular: {
@@ -30,14 +35,20 @@ require.config({
     angulararia: {
       deps: ['angular']
     },
-    angularmaterial: {
-      deps: ['angular', 'angulararia']
-    },
     angularlocalstorage: {
       deps: ['angular']
     },
     underscore: {
       exports: '_'
+    },
+    hammerjs: {
+      exports: 'Hammer'
+    },
+    waves: {
+      deps: ['jquery', 'velocity', 'hammerjs', 'jqueryhammer', 'jqueryeasing']
+    },
+    materialize: {
+      deps: ['jquery', 'velocity', 'hammerjs', 'jqueryhammer', 'jqueryeasing']
     }
   }
 });
