@@ -9,9 +9,13 @@ define(['./module', 'underscore'], function(servicesModule, _) {
               msg: 'Good morning',
               id: 0
             }],
-            [6, 11, {
+            [6, 9, {
               msg: 'Good morning',
               id: 1
+            }],
+            [10, 11, {
+              msg: 'Good morning',
+              id: 2
             }],
             [12, 15, {
               msg: 'Good afternoon',
