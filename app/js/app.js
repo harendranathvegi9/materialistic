@@ -2,6 +2,7 @@
 define([
   'angular',
   'jquery',
+  'jquerysticky',
   'waves',
   'materialize',
   'angularroute',

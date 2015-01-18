@@ -105,6 +105,9 @@ module.exports = function(grunt) {
           }, {
             src: './bower_components/jquery.hammer.js/jquery.hammer.js',
             dest: './app/js/vendor/jquery.hammer.js'
+          },{
+            src: './bower_components/jquery-sticky/jquery.sticky.js',
+            dest: './app/js/vendor/jquery.sticky.js'
           }
         ]
       },

@@ -2,5 +2,6 @@
 define([
   './mmHeader/mmHeader',
   './mmToolbar/mmToolbar',
-  './mmSubheader/mmSubheader'
+  './mmSubheader/mmSubheader',
+  './mmHeaderTabs/mmHeaderTabs'
 ], function() {});

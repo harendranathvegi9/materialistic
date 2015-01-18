@@ -7,8 +7,21 @@ define(['../module'], function(directivesModule) {
         restrict: 'E',
         link: function(scope, element, attributes) {
 
-          $('.dropdown-button').dropdown({
-            hover:false
+          $(document).ready(function() {
+            $("#mm-toolbar").sticky({
+              topSpacing: 0,
+              wrapperClassName: 'navbar-fixed',
+              className: ''
+            }).on('sticky-start', function() {
+              $(this).addClass('mm-toolbar-scroll mm-toolbar-shadow');
+            }).on('sticky-end', function() {
+              $(this).removeClass('mm-toolbar-scroll mm-toolbar-shadow');
+            });
+
+            $(window).resize(function(){
+              $("#mm-toolbar").sticky('update');
+            });
+
           });
 
           /*Unbind*/

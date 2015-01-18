@@ -16,6 +16,7 @@ require.config({
     velocity: 'vendor/velocity',
     jqueryeasing: 'vendor/jquery.easing',
     jqueryhammer: 'vendor/jquery.hammer',
+    jquerysticky: 'vendor/jquery.sticky',
     materialize: 'vendor/materialize'
   },
   shim: {
@@ -49,6 +50,9 @@ require.config({
     },
     materialize: {
       deps: ['jquery', 'velocity', 'hammerjs', 'jqueryhammer', 'jqueryeasing']
+    },
+    jquerysticky: {
+      deps: ['jquery']
     }
   }
 });

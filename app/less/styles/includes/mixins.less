@@ -9,6 +9,8 @@
 
 }
 
+.generate-bg-class(13);
+
 
 .elipses-text{
     white-space: nowrap;
@@ -20,4 +22,66 @@
   margin-left: -0.75rem;
   margin-right: -0.75rem;
   margin-bottom: 0;
+}
+
+.zero-m{
+  margin: 0 !important;
+}
+.zero-m-btm{
+  margin-bottom: 0 !important;
+}
+.zero-m-top{
+  margin-top: 0 !important;
+}
+.zero-m-left{
+  margin-left: 0 !important;
+}
+.zero-m-right{
+  margin-right: 0 !important;
+}
+
+.zero-p{
+  padding: 0 !important;
+}
+.zero-p-btm{
+  padding-bottom: 0 !important;
+}
+.zero-p-top{
+  padding-top: 0 !important;
+}
+.zero-p-left{
+  padding-left: 0 !important;
+}
+.zero-p-right{
+ padding-right: 0 !important;
+}
+
+
+.pull-left{
+  float: left !important;
+}
+.pull-right{
+  float: right !important;
+}
+
+.clearfix{
+  &:before,&:after{
+    display: table;
+    content: " ";
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+.no-radius{
+  .border-radius(0);
+}
+
+.no-shadow{
+  .box-shadow(none);
+}
+
+.transparent{
+  background:transparent;
 }
