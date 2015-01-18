@@ -4,9 +4,17 @@ define(['./app'], function(app) {
     .config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
-          .when('/', {
-            controller: 'AppMainController',
-            templateUrl: 'partials/home.html'
+          .when('/',{
+            controller:'AppMainController',
+            templateUrl:'partials/home.html'
+          })
+          .when('/posts-fresh', {
+            controller: 'FreshPostsController',
+            templateUrl: 'partials/posts-fresh.html'
+          })
+          .when('/posts-followed', {
+            controller: 'FollowedPostsController',
+            templateUrl: 'partials/posts-followed.html'
           })
           .when('/settings', {
             controller: 'SettingsController',

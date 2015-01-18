@@ -1,7 +1,7 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmHeaderTabs', ['$rootScope',
-    function($rootScope) {
+  directivesModule.directive('mmHeaderTabs', ['$rootScope', '$location',
+    function($rootScope, $location) {
       return {
         replace: true,
         restrict: 'E',
@@ -23,10 +23,15 @@ define(['../module'], function(directivesModule) {
                 $(this).removeClass('mm-header-tabs-scroll');
               });
 
-             $(window).resize(function(){
+            $(window).resize(function() {
               $("#mm-header-tabs").sticky('update');
             });
           });
+
+
+          scope.changeView = function($event) {
+            $location.path($event.target.attributes.location.value);
+          };
 
           /*Unbind*/
           scope.$on('$destroy', function() {

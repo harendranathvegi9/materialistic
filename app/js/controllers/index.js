@@ -2,5 +2,7 @@
 define([
   './MainController',
   './AppMainController',
-  './SettingsController'
+  './SettingsController',
+  './FreshPostsController',
+  './FollowedPostsController'
 ], function() {});

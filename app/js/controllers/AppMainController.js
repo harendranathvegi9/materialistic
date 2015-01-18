@@ -49,46 +49,6 @@ define(['./module', 'underscore'], function(controllerModule, _) {
         console.log(data);
       });
 
-
-      $scope.showPostDetailsFresh = function(index) {
-        $scope.wordpress.currentFresh = $scope.wordpress.fresh[index];
-        $scope.wordpress.currentFreshIndex = index;
-        $('#post-fresh-detail').sticky('update');
-      };
-
-      var _getClientHeight = function(){
-        var w = window,
-          d = document,
-          e = d.documentElement,
-          g = d.getElementsByTagName('body')[0],
-          x = w.innerWidth || e.clientWidth || g.clientWidth,
-          y = w.innerHeight || e.clientHeight || g.clientHeight;
-        return {
-          width: x,
-          height:y
-        };
-      };
-
-      var _setPostDetailsHeight = function(){
-        var height = 104;
-        var clientHeight = _getClientHeight().height;
-        $('#post-fresh-detail').height(clientHeight - height - 30);
-      };
-
-
-      $timeout(function() {
-        _setPostDetailsHeight();
-        $('#post-fresh-detail').sticky({
-          topSpacing: 111,
-          getWidthFrom: '#post-fresh-detail-container',
-          responsiveWidth: true
-        });
-      }, 100);
-
-      $(window).resize(function(){
-        _setPostDetailsHeight();
-      });
-
       $scope.goToUrl = function(url) {
         chrome.tabs.create({
           url: url,

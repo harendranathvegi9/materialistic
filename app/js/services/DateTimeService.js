@@ -5,9 +5,26 @@ define(['./module', 'underscore'], function(servicesModule, _) {
     function() {
       var _timeBasedGreeting = function() {
         var data = [
-            [0, 11, "Good morning"], //It is always better to use an array
-            [12, 17, "Good afternoon"], //to save data
-            [18, 24, "Good evening"]
+            [0, 5, {
+              msg: 'Good morning',
+              id: 0
+            }],
+            [6, 11, {
+              msg: 'Good morning',
+              id: 1
+            }],
+            [12, 15, {
+              msg: 'Good afternoon',
+              id: 2
+            }],
+            [16, 18, {
+              msg: 'Good evening',
+              id: 3
+            }],
+            [19, 24, {
+              msg: 'Good evening',
+              id: 4
+            }]
           ],
           hr = new Date().getHours();
 

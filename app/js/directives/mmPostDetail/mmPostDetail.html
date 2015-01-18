@@ -1,0 +1,13 @@
+<div class="post-detail-current">
+  <header class="post-details-header">
+    <h1 class="post-details-title" ng-bind-html="post.title"></h1>
+    <span class="post-details-author-name">By {{post.author.name}}</span>
+    <hr>
+  </header>
+  <div class="card-content grey-text text-darken-3">
+    <div class="post-content" ng-bind-html="post.content"></div>
+  </div>
+  <footer class="card-action">
+    <a target="_blank" href="{{post.URL}}" class="pink-text">ORIGINAL POST</a>
+  </footer>
+</div>

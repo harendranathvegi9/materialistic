@@ -1,0 +1,16 @@
+<div class="card post-list pink z-depth-1">
+  <div class="card-content flex-card"> 
+    <div class="post-author-image flex-image">
+      <img ng-src="{{post.author.avatar_URL}}" alt="" class="circle responsive-img"> 
+      <!-- notice the "circle" class -->
+    </div>
+    <div class="flex-content white-text">
+      <span class="post-author-name">{{post.author.name}}</span>
+      <span class="post-published">{{post.date | date:"dd MMM yyyy"}}</span>
+    </div>
+  </div>
+  <div class="post-data grey darken-3 white-text">
+    <span class="post-title" ng-bind-html="post.title"></span>
+    <div class="post-exterpt" ng-bind-html="post.excerpt"></div>
+  </div>
+</div>

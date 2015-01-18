@@ -1,0 +1,28 @@
+<div class="mm-wordpress-fresh">
+  <!-- Content -->
+  <div class="row">
+    <div class="col s12 m5 l3">
+      <!-- Posts -->
+      <mm-post-card post="post" ng-repeat="post in wordpress.fresh" ng-click="showPostDetailsFresh($index)"></mm-post-card>
+    </div>
+    <div id="post-fresh-detail-container" class="col hide-on-small-and-down" 
+    ng-class="{'s12': !(wordpress.fresh.length > 0),'m7 l9' : (wordpress.fresh.length > 0)}">
+      <!-- Details -->
+      <article id="post-detail" class="post-detail card grey lighten-5">
+        <!-- Post Details -->
+        <mm-post-detail post="wordpress.currentFresh" ng-if="wordpress.currentFresh.ID"></mm-post-detail>
+
+        <div class="post-details-help" ng-if="!wordpress.currentFresh.ID">
+           <!-- Progress bar -->
+          <mm-progress-spinner ng-if="!(wordpress.fresh.length > 0)"></mm-progress-spinner>
+          <p ng-if="!(wordpress.fresh.length > 0)">
+            Please wait while the posts load. Once loaded click on the any of the posts to view its content
+          </p>
+          <p ng-if="(wordpress.fresh.length > 0)">
+            Click on any of the posts to view its contents here.
+          </p>
+        </div>
+      </article>
+    </div>  
+  </div>
+</div>

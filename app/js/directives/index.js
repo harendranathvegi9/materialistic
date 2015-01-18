@@ -3,5 +3,8 @@ define([
   './mmHeader/mmHeader',
   './mmToolbar/mmToolbar',
   './mmSubheader/mmSubheader',
-  './mmHeaderTabs/mmHeaderTabs'
+  './mmHeaderTabs/mmHeaderTabs',
+  './mmProgressSpinner/mmProgressSpinner',
+  './mmPostDetail/mmPostDetail',
+  './mmPostCard/mmPostCard'
 ], function() {});

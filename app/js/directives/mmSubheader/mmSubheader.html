@@ -3,17 +3,17 @@
       <div class="row zero-m-btm">
         <div class="col s12 m7">
           <div class="mm-greeting">
-            <i class="mm-icon icon-large icon-sunrise pull-left"></i>
+            <i class="mm-icon icon-large icon-greeting-{{greeting.id}} pull-left"></i>
             <span class="mm-greeting-text">
-              Good morning 
+              {{greeting.msg}}
               <span class="mm-greeting-name">Nisheed Jagadish</span>
             </span>
           </div>
         </div>
         <div class="col m5 hide-on-small-and-down">
           <div class="mm-greeting-datetime">
-            <span class="mm-greeting-date">31<sup>st</sup> January 2015</span>
-            &nbsp;<span class="mm-greeting-time">12:30 PM</span>
+            <span class="mm-greeting-date">{{dateTime | date:"d"}}<sup>{{dateOrdinal}}</sup> {{dateTime | date:"MMMM yyyy"}}</span>
+            &nbsp;<span class="mm-greeting-time">{{dateTime | date:"hh:mm a"}}</span>
           </div>
         </div>
       </div>   
@@ -24,7 +24,7 @@
         <div class="col s12 mm-greeting-location">
           <i class="mdi-maps-my-location small"></i>
           <span class="mm-greeting-location-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing
+            {{location}}
           </span>
         </div>
       </div>
