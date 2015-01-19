@@ -6,5 +6,6 @@ define([
   './mmHeaderTabs/mmHeaderTabs',
   './mmProgressSpinner/mmProgressSpinner',
   './mmPostDetail/mmPostDetail',
-  './mmPostCard/mmPostCard'
+  './mmPostCard/mmPostCard',
+  './mmWaves/mmWaves'
 ], function() {});
