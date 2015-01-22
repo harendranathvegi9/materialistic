@@ -9,13 +9,7 @@ define(['./module', 'underscore'], function(controllerModule, _) {
         currentFreshIndex: false
       };
 
-      WordpressService.getFresh(40).then(function(response) {
-        $scope.wordpress.fresh = response.data.posts;
-        $('html,body').animate({
-            scrollTop: $('.mm-greeting-card').eq(0).height()
-          }, 300);
-      });
-
+      $scope.wordpress.fresh = AppStorageService.getData('wordpressFresh');
 
       $scope.showPostDetailsFresh = function(index) {
         $scope.wordpress.currentFresh = $scope.wordpress.fresh[index];
@@ -45,12 +39,19 @@ define(['./module', 'underscore'], function(controllerModule, _) {
 
 
       $timeout(function() {
+        
         _setPostDetailsHeight();
+        
         $('#post-detail').sticky({
           topSpacing: 111,
           getWidthFrom: '#post-fresh-detail-container',
           responsiveWidth: true
         });
+        
+        $('html,body').animate({
+          scrollTop: $('.mm-greeting-card').eq(0).height()
+        }, 300);
+
       }, 100);
 
       $(window).resize(function() {

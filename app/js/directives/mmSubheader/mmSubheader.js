@@ -1,7 +1,12 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmSubheader', ['$rootScope', '$interval', 'DateTimeService', 'GeoLocationService',
-    function($rootScope, $interval, DateTimeService, GeoLocationService) {
+  directivesModule.directive('mmSubheader', [
+    '$rootScope',
+    '$interval',
+    'DateTimeService',
+    'GeoLocationService',
+    'AppStorageService',
+    function($rootScope, $interval, DateTimeService, GeoLocationService, AppStorageService) {
       return {
         replace: true,
         restrict: 'E',
@@ -11,16 +16,12 @@ define(['../module'], function(directivesModule) {
           scope.dateTime = new Date();
           scope.dateOrdinal = DateTimeService.ordinal(scope.dateTime.getDate());
           scope.greeting = DateTimeService.greeting();
-          scope.location = 'Loading location...';
+          scope.location = AppStorageService.getData('geoLocation');
 
           $interval(function() {
             scope.dateTime = new Date();
             scope.dateOrdinal = DateTimeService.ordinal(scope.dateTime.getDate());
           }, 1000);
-
-          GeoLocationService.geoLocate().then(function(response){
-            scope.location = response.address.formatted_address;
-          });
 
           /*Unbind*/
           scope.$on('$destroy', function() {

@@ -5,5 +5,6 @@ define([
   './GeoLocationService',
   './DateTimeService',
   './ChromeStorageService',
-  './WordpressService'
+  './WordpressService',
+  './QueueDataService'
 ], function() {});

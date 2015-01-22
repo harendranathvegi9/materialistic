@@ -4,9 +4,9 @@ define(['./app'], function(app) {
     .config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
-          .when('/',{
-            controller:'AppMainController',
-            templateUrl:'partials/home.html'
+          .when('/home', {
+            controller: 'AppMainController',
+            templateUrl: 'partials/home.html'
           })
           .when('/posts-fresh', {
             controller: 'FreshPostsController',
@@ -27,7 +27,12 @@ define(['./app'], function(app) {
           .when('/search', {
             controller: 'AppMainController',
             templateUrl: 'partials/search.html'
-          });
+          })
+          .when('/refresh', {
+            controller: 'RefreshErrorController',
+            templateUrl: 'partials/refresh.html'
+          })
+          .otherwise('/');
       }
     ]);
 });

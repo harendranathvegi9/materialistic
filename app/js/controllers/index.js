@@ -4,5 +4,6 @@ define([
   './AppMainController',
   './SettingsController',
   './FreshPostsController',
-  './FollowedPostsController'
+  './FollowedPostsController',
+  './RefreshErrorController'
 ], function() {});

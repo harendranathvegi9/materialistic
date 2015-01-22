@@ -22,7 +22,7 @@
   display: block;
 
   &:focus{
-    outline: 1px solid #e91e63;
+    outline: none;
   }
 
   .post-author-image{
@@ -114,3 +114,23 @@
   width: 100%;
   height: 64px;
 }
+
+.circle-clip(@sizeX:10%,@posX:50%,@posY:50%){
+  -webkit-clip-path: circle(@sizeX at @posX @posY);
+  clip-path: circle(@sizeX at @posX @posY);
+}
+
+.wave-transition{
+  .background-clip(border-box);
+  .circle-clip(0%,0%,0%);
+  .opacity(0.5);
+}
+
+.wave-transition-full{
+  .background-clip(border-box);
+  .circle-clip(100%);
+  .opacity(1);
+  .transition(all 0.75s ease-out);
+}
+
+

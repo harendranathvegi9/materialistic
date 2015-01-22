@@ -37,11 +37,13 @@ define(['./module', 'underscore'], function(servicesModule, _) {
             var timestamp = new Date();
             if (response.data.status === 'OK') {
               var address = _getAddressByType(response.data, 'postal_code');
+              deffered.notify('Geo Location Recieved');
               deffered.resolve({
                 address: address,
                 timestamp: timestamp
               });
             } else {
+              deffered.notify('Geo Location Error');
               deffered.reject({
                 error: response.data.status,
                 timestamp: timestamp

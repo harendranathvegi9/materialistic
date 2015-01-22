@@ -1,21 +1,29 @@
 /*global define*/
 /*global Waves*/
 define(['./module'], function(controllerModule) {
-  controllerModule.controller('MainController', ['$scope', '$location', '$interval', 'AppStorageService', 'DateTimeService',
-    function($scope, $location, $interval, AppStorageService, DateTimeService) {
+  controllerModule.controller('MainController', [
+    '$scope',
+    '$rootScope',
+    '$location',
+    'AppStorageService',
+    'DateTimeService',
+    'QueueDataService',
+    function($scope, $rootScope, $location, AppStorageService, DateTimeService, QueueDataService) {
 
       if (AppStorageService.getDefaults() === null) {
         AppStorageService.setDefaults();
       }
 
       $scope.appData = AppStorageService.getAppData();
-
       /*To randomize*/
       //Math.floor(Math.random() * (13 - 1 + 1)) + 1;
       $scope.currentBg = $scope.appData.defaultBg;
 
-      //Should be dynamically set based on preference
-      $location.path('/posts-followed');
+      if(DateTimeService.compare($scope.appData.lastTimestamp, DateTimeService.formattedDate(new Date())) === -1){
+        $location.path('/refresh');
+      } else {
+        $location.path('/posts-fresh');
+      }
 
       $scope.$on('$destroy', function() {});
     }

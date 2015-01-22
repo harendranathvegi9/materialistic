@@ -3,12 +3,12 @@
   <div class="row">
     <div class="col s12 m5 l3">
       <!-- Posts -->
-      <mm-post-card post="post" ng-repeat="post in wordpress.followed" ng-click="showPostDetailsFollowed($index)"></mm-post-card>
+      <mm-post-card post="post" ng-repeat="post in wordpress.followed" ng-click="showPostDetailsFollowed($event,$index)"></mm-post-card>
     </div>
     <div id="post-followed-detail-container" class="col s12 hide-on-small-and-down" 
     ng-class="{'m7 l9' : (wordpress.followed.length > 0)}">
       <!-- Details -->
-      <article id="post-detail" class="post-detail card grey lighten-5">
+      <article id="post-detail" class="post-detail card grey lighten-2">
         <!-- Post Details -->
         <mm-post-detail post="wordpress.currentFollowed" ng-if="wordpress.currentFollowed.ID"></mm-post-detail>
 

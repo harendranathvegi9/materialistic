@@ -1,7 +1,7 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmToolbar', ['$rootScope',
-    function($rootScope) {
+  directivesModule.directive('mmToolbar', ['$rootScope', '$location',
+    function($rootScope, $location) {
       return {
         replace: true,
         restrict: 'E',
@@ -18,11 +18,15 @@ define(['../module'], function(directivesModule) {
               $(this).removeClass('mm-toolbar-scroll mm-toolbar-shadow');
             });
 
-            $(window).resize(function(){
+            $(window).resize(function() {
               $("#mm-toolbar").sticky('update');
             });
 
           });
+
+          scope.refreshData = function() {
+            $location.path('/refresh');
+          };
 
           /*Unbind*/
           scope.$on('$destroy', function() {

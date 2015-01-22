@@ -9,7 +9,6 @@ define(['./module', 'underscore'], function(controllerModule, _) {
         currentFollowedIndex: false
       };
 
-
       WordpressService.getFollowed(1, ['wavesnsands.wordpress.com', 'matt.wordpress.com'])
         .then(function(response) {
           var posts = [];
@@ -25,7 +24,7 @@ define(['./module', 'underscore'], function(controllerModule, _) {
         });
 
 
-      $scope.showPostDetailsFollowed = function(index) {
+      $scope.showPostDetailsFollowed = function(event, index) {
         $scope.wordpress.currentFollowed = $scope.wordpress.followed[index];
         $scope.wordpress.currentFollowedIndex = index;
         _setPostDetailsHeight();
