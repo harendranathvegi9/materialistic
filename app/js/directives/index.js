@@ -7,5 +7,7 @@ define([
   './mmProgressSpinner/mmProgressSpinner',
   './mmPostDetail/mmPostDetail',
   './mmPostCard/mmPostCard',
-  './mmWaves/mmWaves'
+  './mmSidenav/mmSidenav',
+  './mmWaves/mmWaves',
+  './mmToggleSidenav/mmToggleSidenav'
 ], function() {});
