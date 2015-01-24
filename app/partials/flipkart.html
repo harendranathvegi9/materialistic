@@ -1,0 +1,15 @@
+<div id="mm-deals" class="mm-deals row">
+  <div class="col s12 m4 l3" ng-repeat="deal in deals">
+    <div class="card small mm-deal">
+      <div class="card-image" style="background-image:url({{deal.imageUrls[0].url}})">
+        <span class="card-title">{{deal.description}}</span>
+      </div>
+      <div class="card-content">
+        <h5 class="mm-deal-title">{{deal.title}}</h5>
+      </div>
+      <div class="card-action">
+        <a href="{{deal.url}}">Checkout Deal <span class="badge">{{deal.availability}}</span></a>
+      </div>
+    </div>
+  </div>
+</div>

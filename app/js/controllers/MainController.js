@@ -22,7 +22,7 @@ define(['./module'], function(controllerModule) {
       if(DateTimeService.compare($scope.appData.lastTimestamp, DateTimeService.formattedDate(new Date())) === -1){
         $location.path('/refresh');
       } else {
-        $location.path('/posts-fresh');
+        $location.path('/flipkart/top');
       }
 
       $scope.$on('$destroy', function() {});

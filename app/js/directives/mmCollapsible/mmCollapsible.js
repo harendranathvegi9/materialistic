@@ -1,14 +1,12 @@
 /*global define*/
 define(['../module'], function(directivesModule) {
-  directivesModule.directive('mmToggleSidenav', ['$rootScope',
+  directivesModule.directive('mmCollapsible', ['$rootScope',
     function($rootScope) {
       return {
         replace: true,
         restrict: 'C',
         link: function(scope, element, attributes) {
-          element.sideNav({
-            edge: 'right'
-          });
+          element.collapsible();
           /*Unbind*/
           scope.$on('$destroy', function() {
 

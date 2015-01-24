@@ -1,9 +1,9 @@
 /*global define*/
 define([
   './MainController',
+  './WordpressPostsController',
+  './FlipkartDealsController',
+  './RefreshErrorController',
   './AppMainController',
-  './SettingsController',
-  './FreshPostsController',
-  './FollowedPostsController',
-  './RefreshErrorController'
+  './SettingsController'
 ], function() {});

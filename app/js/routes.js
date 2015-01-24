@@ -8,13 +8,13 @@ define(['./app'], function(app) {
             controller: 'AppMainController',
             templateUrl: 'partials/home.html'
           })
-          .when('/posts-fresh', {
-            controller: 'FreshPostsController',
-            templateUrl: 'partials/posts-fresh.html'
+          .when('/wordpress/:type', {
+            controller: 'WordpressPostsController',
+            templateUrl: 'partials/wordpress.html'
           })
-          .when('/posts-followed', {
-            controller: 'FollowedPostsController',
-            templateUrl: 'partials/posts-followed.html'
+          .when('/flipkart/:type', {
+            controller: 'FlipkartDealsController',
+            templateUrl: 'partials/flipkart.html'
           })
           .when('/settings', {
             controller: 'SettingsController',
@@ -24,15 +24,11 @@ define(['./app'], function(app) {
             controller: 'AppMainController',
             templateUrl: 'partials/about.html'
           })
-          .when('/search', {
-            controller: 'AppMainController',
-            templateUrl: 'partials/search.html'
-          })
           .when('/refresh', {
             controller: 'RefreshErrorController',
             templateUrl: 'partials/refresh.html'
           })
-          .otherwise('/');
+          .otherwise('/home');
       }
     ]);
 });

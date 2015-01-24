@@ -1,0 +1,22 @@
+<div class="mm-wordpress">
+  <!-- Content -->
+  <div class="row">
+    <!-- Posts -->
+    <aside class="col s12 m5 l3">
+      <mm-post-card post="post" ng-repeat="post in posts" ng-click="showPostDetailsFresh($index)"></mm-post-card>
+    </aside>
+    <!-- Details -->
+    <div id="post-detail-wrapper" class="col  m7 l9 hide-on-small-and-down">
+      <article id="post-detail" class="post-detail card grey lighten-2">
+        <!-- Post Details -->
+        <mm-post-detail post="currentPost" ng-if="currentPost.ID"></mm-post-detail>
+        <!-- Help Text -->
+        <div class="post-details-help" ng-if="!currentPost.ID">
+          <p>
+            Click on any of the posts to view its contents here.
+          </p>
+        </div>
+      </article>
+    </div>  
+  </div>
+</div>

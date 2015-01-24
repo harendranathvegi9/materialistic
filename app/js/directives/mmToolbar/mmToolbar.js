@@ -7,22 +7,22 @@ define(['../module'], function(directivesModule) {
         restrict: 'E',
         link: function(scope, element, attributes) {
 
-          $(document).ready(function() {
-            $("#mm-toolbar").sticky({
-              topSpacing: 0,
-              wrapperClassName: 'navbar-fixed',
-              className: ''
-            }).on('sticky-start', function() {
-              $(this).addClass('mm-toolbar-scroll mm-toolbar-shadow');
-            }).on('sticky-end', function() {
-              $(this).removeClass('mm-toolbar-scroll mm-toolbar-shadow');
-            });
+          var _shadowClasses = 'z-depth-1 z-depth-2';
 
-            $(window).resize(function() {
-              $("#mm-toolbar").sticky('update');
-            });
-
+          element.sticky({
+            topSpacing: 0,
+            wrapperClassName: 'navbar-fixed',
+            className: ''
+          }).on('sticky-start', function() {
+            $(this).removeClass(_shadowClasses).addClass('z-depth-2');
+          }).on('sticky-end', function() {
+            $(this).removeClass(_shadowClasses).addClass('z-depth-1');
           });
+
+          $(window).resize(function() {
+            element.sticky('update');
+          });
+
 
           scope.refreshData = function() {
             $location.path('/refresh');
