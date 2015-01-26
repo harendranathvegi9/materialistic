@@ -5,5 +5,8 @@ define([
   './FlipkartDealsController',
   './RefreshErrorController',
   './AppMainController',
-  './SettingsController'
+  './SettingsController',
+  './UserSettingsController',
+  './WordpressSettingsController',
+  './FlipkartSettingsController'
 ], function() {});

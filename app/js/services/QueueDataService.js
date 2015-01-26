@@ -50,6 +50,9 @@ define(['./module', 'underscore'], function(servicesModule, _) {
       };
 
       var _getServices = function() {
+
+        var wordpress = AppStorageService.getData('wordpress');
+
         return [{
           name: 'geoLocation',
           arguments: [],
@@ -67,12 +70,12 @@ define(['./module', 'underscore'], function(servicesModule, _) {
           service: RhCloudService.api.flipkart.offers.top
         }, {
           name: 'wordpressFresh',
-          arguments: [40],
+          arguments: [wordpress.freshLimit],
           responseToSave:'data.posts',
           service: WordpressService.getFresh
         }, {
           name: 'wordpressFollowed',
-          arguments: [1, ['wavesnsands.wordpress.com', 'matt.wordpress.com']],
+          arguments: [wordpress.followedLimit, wordpress.followedBlogs],
           responseToSave:'data',
           service: WordpressService.getFollowed
         }];

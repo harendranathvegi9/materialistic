@@ -1,14 +1,140 @@
-<div class="container" layout="column">
-  <md-card>
-    <h1>SETTINGS</h1>
+<div class="mm-settings">
+  <div class="row">
+    <div class="col s12 m12 l6">
+      <form name="userSettings" ng-submit="saveData()" ng-controller="UserSettingsController">
+        <div class="card">
+          <div class="card-content">
+             <div class="row">
+              <div class="col s12">
+                <span class="card-title grey-text text-darken-2">User Settings</span>
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="name" type="text" name="name" ng-model="user.name">
+                <label for="name" ng-class="{active:user.name}">Name</label>
+              </div>
+            </div>
+          </div>
+           <footer class="card-action">
+            <button class="btn btn-large pull-right" ng-disabled="!userSettings.$dirty" type="submit">SAVE</button>
+          </footer>
+        </div>
+      </form>
 
-    <md-content class="md-padding">
-      <form name="userForm">
-        <md-input-container flex>
-          <label>Company (Disabled)</label>
-          <input ng-model="user.company">
-        </md-input-container>
-        </form>
-    </md-content> 
-  </md-card>
+      <form name="flipkartSettings" ng-submit="saveData()" novalidate ng-controller="FlipkartSettingsController" >
+        <div class="card">
+          <div class="card-content">
+
+            <div class="row">
+              <div class="col s12">
+                <span class="card-title grey-text text-darken-2">Flipkart Settings</span>
+                <hr>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col s12">
+                <p>
+                  <input ng-model="flipkart.enableDotd" type="checkbox" name="dealsOfTheDay" id="dealsOfTheDay"/>
+                  <label for="dealsOfTheDay">Enable Deals Of The Day</label>
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12">
+                <p>
+                  <input ng-model="flipkart.enableTop" type="checkbox" name="topDeals" id="topDeals"/>
+                  <label for="topDeals">Enable Top Deals</label>
+                </p>
+              </div>
+            </div>
+          
+          </div>
+          <footer class="card-action">
+            <button class="btn btn-large pull-right" ng-disabled="!flipkartSettings.$dirty" type="submit">SAVE</button>
+          </footer>
+        </div>
+      </form>  
+    </div>
+    <div class="col s12 m12 l6">
+      <form name="wordpressSettings" novalidate ng-controller="WordpressSettingsController" ng-submit="saveData()">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12">
+                <span class="card-title grey-text text-darken-2">Wordpress Settings</span>
+                <hr>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col s12">
+                <p>
+                  <input ng-model="wordpress.enableFollowed" type="checkbox" name="followedBlogs" id="followedBlogs"/>
+                  <label for="followedBlogs">Enable Followed Blogs</label>
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12">
+                <p>
+                  <input ng-model="wordpress.enableFresh" type="checkbox" name="freshPosts" id="freshPosts"/>
+                  <label for="freshPosts">Enable Fresh Posts</label>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" ng-if="wordpress.enableFollowed">
+              <div class="col s12">
+                <label for="postCount">Followed Posts Limit <span class="badge">{{wordpress.followedLimit}}</span></label>
+                <p class="range-field">
+                  <input type="range" id="postCount" min="1" max="5" ng-model="wordpress.followedLimit"/>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" ng-if="wordpress.enableFresh">
+              <div class="col s12">
+                <label for="postCount">Fresh Posts Limit <span class="badge">{{wordpress.freshLimit}}</span></label>
+                <p class="range-field">
+                  <input type="range" id="postCount" min="1" max="100" ng-model="wordpress.freshLimit"/>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" ng-if="wordpress.enableFollowed">
+              <div class="input-field col s12">
+                <input id="blogName" type="text" name="blogName">
+                <label for="blogName">Follow Blog <small>eg. matt.wordprees.com</small></label>
+                <a mm-waves="waves-light" class="mm-wp-settings-add btn-floating" ng-click="addBlog()">
+                  <i class="mdi-content-add"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="row" ng-if="wordpress.enableFollowed">
+              <div class="col s12">
+                <ul class="collection with-header">
+                  <li class="collection-header"><h4>Followed Blogs</h4></li>
+                  <li class="collection-item" ng-repeat="blog in wordpress.followedBlogs track by $index">
+                    {{blog}}
+                    <a ng-if="!$first" class="secondary-content red-text" ng-click="removeBlog($index)">
+                      <i class="secondary-content mdi-content-remove-circle"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="card-action">
+            <button class="btn btn-large pull-right" type="submit" ng-disabled="!wordpressSettings.$dirty">SAVE</button>
+          </footer>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

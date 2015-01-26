@@ -1,7 +1,7 @@
 /*global define*/
 define(['./module', 'underscore'], function(servicesModule, _) {
-  servicesModule.factory('AppStorageService', ['localStorageService', 'DateTimeService',
-    function(localStorageService, DateTimeService) {
+  servicesModule.factory('AppStorageService', ['localStorageService', 'DateTimeService', 'DefaultData',
+    function(localStorageService, DateTimeService, DefaultData) {
       ///Thanks to Dave Furfero for extending underscore
       _.mixin({
         // Get/set the value of a nested property
@@ -45,51 +45,13 @@ define(['./module', 'underscore'], function(servicesModule, _) {
         }
       });
 
-      var _defaults = {
-        appData: {
-          appName: 'MaterialisticMe',
-          appAuthor: 'Nisheed Jagadish',
-          username: 'User',
-          wordpressFollows: [
-            'wavesnsands.wordpress.com'
-          ],
-          flipkartDotd: true,
-          flipkartTop: true,
-          showTime: true,
-          showLocation: true,
-          stayFresh: false,
-          defaultBg: 7,
-          lastTimestamp: DateTimeService.formattedDate(new Date())
-        },
-        appDataExists: true
-      };
-
-
       var _checkDefaults = function() {
-        return localStorageService.get('appDataExists');
+        return localStorageService.get('dataExists');
       };
       var _setDefaults = function() {
-        _.each(_defaults, function(value, key) {
+        _.each(DefaultData, function(value, key) {
           localStorageService.set(key, value);
         });
-      };
-
-      var _getAppData = function(key) {
-        var data = localStorageService.get('appData');
-        if (!key) {
-          return data;
-        }
-        return _.property(key)(data);
-      };
-
-      var _setAppData = function(key, value) {
-        var data = localStorageService.get('appData');
-        if (_.has(data, key)) {
-          data[key] = value;
-          localStorageService.set('appData', data);
-          return data;
-        }
-        return false;
       };
 
       var _getData = function(key) {
@@ -101,13 +63,16 @@ define(['./module', 'underscore'], function(servicesModule, _) {
         return;
       };
 
+      var _clearData = function() {
+        return localStorageService.clearAll();
+      };
+
       return {
         getDefaults: _checkDefaults,
         setDefaults: _setDefaults,
-        getAppData: _getAppData,
-        setAppData: _setAppData,
         getData: _getData,
-        setData: _setData
+        setData: _setData,
+        clearData: _clearData
       };
     }
   ]);

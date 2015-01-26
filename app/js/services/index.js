@@ -6,5 +6,6 @@ define([
   './DateTimeService',
   './ChromeStorageService',
   './WordpressService',
-  './QueueDataService'
+  './QueueDataService',
+  './DefaultDataService'
 ], function() {});

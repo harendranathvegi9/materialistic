@@ -139,7 +139,7 @@ module.exports = function(grunt) {
           './bower_components/materialize/js/sideNav.js',
           './bower_components/materialize/js/slider.js',
           './bower_components/materialize/js/tabs.js',
-          './bower_components/materialize/js/toast.js',
+          './bower_components/materialize/js/toasts.js',
           './bower_components/materialize/js/tooltip.js'
         ],
         dest: './app/js/vendor/materialize.js',

@@ -1,6 +1,6 @@
  <ul id="mm-side-nav" class="mm-side-nav side-nav full">
   <li class="no-padding">
-    <ul class="mm-collapsible collapsible collapsible-accordion">
+    <ul ng-if="wordpress.enableFresh || wordpress.enableFollowed" class="mm-collapsible collapsible collapsible-accordion">
       <li>
         <div class="collapsible-header">
           <i class="icon-wordpress left"></i>
@@ -9,15 +9,15 @@
         </div>
         <div class="collapsible-body">
           <ul>
-            <li><a href="#/wordpress/fresh">Freshly Pressed</a></li>
-            <li><a href="#/wordpress/followed">Followed Blogs</a></li>
+            <li><a href="#/wordpress/fresh" ng-if="wordpress.enableFresh">Freshly Pressed</a></li>
+            <li><a href="#/wordpress/followed" ng-if="wordpress.enableFollowed">Followed Blogs</a></li>
           </ul>
         </div>
       </li>
     </ul>
   </li>
   <li class="no-padding">
-    <ul class="mm-collapsible collapsible collapsible-accordion">
+    <ul ng-if="flipkart.enableDotd || flipkart.enableTop" class="mm-collapsible collapsible collapsible-accordion">
       <li>
         <div class="collapsible-header">
           <i class="icon-flipkart left"></i>
@@ -26,13 +26,13 @@
         </div>
         <div class="collapsible-body">
           <ul>
-            <li><a href="#/flipkart/dotd">Deals Of The Day</a></li>
-            <li><a href="#/flipkart/top">Top Offers</a></li>
+            <li><a href="#/flipkart/dotd" ng-if="flipkart.enableDotd">Deals Of The Day</a></li>
+            <li><a href="#/flipkart/top" ng-if="flipkart.enableTop">Top Offers</a></li>
           </ul>
         </div>
       </li>
     </ul>
   </li>
-  <li><a href="#!"><i class="mdi-action-settings left"></i>Settings</a></li>
+  <li><a href="#/settings"><i class="mdi-action-settings left"></i>Settings</a></li>
   <li><a href="#!"><i class="mdi-social-whatshot left"></i>About</a></li>
 </ul>

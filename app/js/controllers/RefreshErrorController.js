@@ -31,7 +31,7 @@ define(['./module'], function(controllerModule) {
           AppStorageService.setData(service.name, _.deep(data[index], service.responseToSave));
         });
 
-        AppStorageService.setAppData('lastTimestamp', DateTimeService.formattedDate(new Date()));
+        AppStorageService.setData('timestamp', DateTimeService.formattedDate(new Date()));
 
         $location.replace().path('/');
         $window.location.reload();

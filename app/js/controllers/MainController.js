@@ -11,18 +11,23 @@ define(['./module'], function(controllerModule) {
     function($scope, $rootScope, $location, AppStorageService, DateTimeService, QueueDataService) {
 
       if (AppStorageService.getDefaults() === null) {
+        AppStorageService.clearData();
         AppStorageService.setDefaults();
+        AppStorageService.setData('timestamp', DateTimeService.formattedDate(new Date()));
+        AppStorageService.setData('dataExists', true);
       }
 
-      $scope.appData = AppStorageService.getAppData();
-      /*To randomize*/
-      //Math.floor(Math.random() * (13 - 1 + 1)) + 1;
-      $scope.currentBg = $scope.appData.defaultBg;
+      $scope.appDate = AppStorageService.getData('app');
+      $scope.timestamp = AppStorageService.getData('timestamp');
 
-      if(DateTimeService.compare($scope.appData.lastTimestamp, DateTimeService.formattedDate(new Date())) === -1){
+      $scope.flipkart = AppStorageService.getData('flipkart');
+      $scope.wordpress = AppStorageService.getData('wordpress');
+      $scope.user = AppStorageService.getData('user');
+
+      if (DateTimeService.compare($scope.timestamp, DateTimeService.formattedDate(new Date())) === -1) {
         $location.path('/refresh');
       } else {
-        $location.path('/flipkart/top');
+        $location.path('/settings');
       }
 
       $scope.$on('$destroy', function() {});
